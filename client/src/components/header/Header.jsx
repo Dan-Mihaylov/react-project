@@ -1,12 +1,14 @@
+import { Link } from "react-router";
+
 export default function Header() {
 
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container">
-                <a className="navbar-brand" href="index.html">
+                <Link className="navbar-brand" to="/">
                     <i className="bi-back" />
-                    <span>Topic</span>
-                </a>
+                    <span> HomeIq</span>
+                </Link>
                 <div className="d-lg-none ms-auto me-4">
                     <a href="#top" className="navbar-icon bi-person smoothscroll" />
                 </div>
@@ -24,22 +26,22 @@ export default function Header() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-lg-5 me-lg-auto">
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_1">
+                            <a className="nav-link click-scroll" href="/#section_1">
                                 Home
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_2">
+                            <a className="nav-link click-scroll" href="/#section_2">
                                 Browse Topics
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_3">
+                            <a className="nav-link click-scroll" href="/#section_3">
                                 How it works
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_4">
+                            <a className="nav-link click-scroll" href="/#section_4">
                                 FAQs
                             </a>
                         </li>

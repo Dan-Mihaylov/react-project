@@ -10,7 +10,7 @@ export default function Footer() {
                     <div className="col-lg-3 col-12 mb-4 pb-2">
                         <a className="navbar-brand mb-2" href="index.html">
                             <i className="bi-back" />
-                            <span>Topic</span>
+                            <span> HomeIq</span>
                         </a>
                     </div>
                     
@@ -18,22 +18,22 @@ export default function Footer() {
                         <h6 className="site-footer-title mb-3">Resources</h6>
                         <ul className="site-footer-links">
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">
+                                <a href="/#section_1" className="site-footer-link">
                                     Home
                                 </a>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">
+                                <a href="/#section_3" className="site-footer-link">
                                     How it works
                                 </a>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">
+                                <a href="/#section_4" className="site-footer-link">
                                     FAQs
                                 </a>
                             </li>
                             <li className="site-footer-link-item">
-                                <a href="#" className="site-footer-link">
+                                <a href="/#section_5" className="site-footer-link">
                                     Contact
                                 </a>
                             </li>
