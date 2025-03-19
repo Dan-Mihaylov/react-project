@@ -1,4 +1,4 @@
-export default function TopicDetails(props) {
+export default function ListingDetails(props) {
 
     return (
         <>

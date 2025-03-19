@@ -1,4 +1,4 @@
-export default function TopicListing() {
+export default function Listings() {
 
     return (
         <>
@@ -30,6 +30,7 @@ export default function TopicListing() {
                             <h3 className="mb-4">Popular Topics</h3>
                         </div>
                         <div className="col-lg-8 col-12 mt-3 mx-auto">
+                            
                             <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div className="d-flex">
                                     <img
@@ -58,6 +59,7 @@ export default function TopicListing() {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div className="d-flex">
                                     <img
@@ -86,6 +88,7 @@ export default function TopicListing() {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div className="d-flex">
                                     <img
@@ -114,6 +117,7 @@ export default function TopicListing() {
                                 </div>
                             </div>
                         </div>
+
                         <div className="col-lg-12 col-12">
                             <nav aria-label="Page navigation example">
                                 <ul className="pagination justify-content-center mb-0">
@@ -155,6 +159,7 @@ export default function TopicListing() {
                                 </ul>
                             </nav>
                         </div>
+                        
                     </div>
                 </div>
             </section>

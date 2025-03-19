@@ -66,14 +66,14 @@ export default function Header() {
                                 aria-labelledby="navbarLightDropdownMenuLink"
                             >
                                 <li>
-                                    <a className="dropdown-item" href="topics-listing.html">
+                                    <Link className="dropdown-item" to="/listings">
                                         Topics Listing
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="dropdown-item" href="contact.html">
+                                    <Link className="dropdown-item" to="/contact">
                                         Contact Form
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </li>

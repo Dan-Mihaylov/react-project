@@ -2,88 +2,7 @@ export default function Contacts() {
 
     return (
         <>
-            <main>
-                <nav className="navbar navbar-expand-lg">
-                    <div className="container">
-                        <a className="navbar-brand" href="index.html">
-                            <i className="bi-back" />
-                            <span>Topic</span>
-                        </a>
-                        <div className="d-lg-none ms-auto me-4">
-                            <a href="#top" className="navbar-icon bi-person smoothscroll" />
-                        </div>
-                        <button
-                            className="navbar-toggler"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav"
-                            aria-controls="navbarNav"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation"
-                        >
-                            <span className="navbar-toggler-icon" />
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNav">
-                            <ul className="navbar-nav ms-lg-5 me-lg-auto">
-                                <li className="nav-item">
-                                    <a className="nav-link click-scroll" href="index.html#section_1">
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link click-scroll" href="index.html#section_2">
-                                        Browse Topics
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link click-scroll" href="index.html#section_3">
-                                        How it works
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link click-scroll" href="index.html#section_4">
-                                        FAQs
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link click-scroll" href="index.html#section_5">
-                                        Contact
-                                    </a>
-                                </li>
-                                <li className="nav-item dropdown">
-                                    <a
-                                        className="nav-link dropdown-toggle"
-                                        href="#section_5"
-                                        id="navbarLightDropdownMenuLink"
-                                        role="button"
-                                        data-bs-toggle="dropdown"
-                                        aria-expanded="false"
-                                    >
-                                        Pages
-                                    </a>
-                                    <ul
-                                        className="dropdown-menu dropdown-menu-light"
-                                        aria-labelledby="navbarLightDropdownMenuLink"
-                                    >
-                                        <li>
-                                            <a className="dropdown-item" href="topics-listing.html">
-                                                Topics Listing
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item active" href="contact.html">
-                                                Contact Form
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div className="d-none d-lg-block">
-                                <a href="#top" className="navbar-icon bi-person smoothscroll" />
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+
                 <header className="site-header d-flex flex-column justify-content-center align-items-center">
                     <div className="container">
                         <div className="row align-items-center">
@@ -103,6 +22,7 @@ export default function Contacts() {
                         </div>
                     </div>
                 </header>
+
                 <section className="section-padding section-bg">
                     <div className="container">
                         <div className="row">
@@ -196,95 +116,6 @@ export default function Contacts() {
                         </div>
                     </div>
                 </section>
-            </main>
-            <footer className="site-footer section-padding">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-3 col-12 mb-4 pb-2">
-                            <a className="navbar-brand mb-2" href="index.html">
-                                <i className="bi-back" />
-                                <span>Topic</span>
-                            </a>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-6">
-                            <h6 className="site-footer-title mb-3">Resources</h6>
-                            <ul className="site-footer-links">
-                                <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">
-                                        Home
-                                    </a>
-                                </li>
-                                <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">
-                                        How it works
-                                    </a>
-                                </li>
-                                <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">
-                                        FAQs
-                                    </a>
-                                </li>
-                                <li className="site-footer-link-item">
-                                    <a href="#" className="site-footer-link">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
-                            <h6 className="site-footer-title mb-3">Information</h6>
-                            <p className="text-white d-flex mb-1">
-                                <a href="tel: 305-240-9671" className="site-footer-link">
-                                    305-240-9671
-                                </a>
-                            </p>
-                            <p className="text-white d-flex">
-                                <a href="mailto:info@company.com" className="site-footer-link">
-                                    info@company.com
-                                </a>
-                            </p>
-                        </div>
-                        <div className="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
-                            <div className="dropdown">
-                                <button
-                                    className="btn btn-secondary dropdown-toggle"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    English
-                                </button>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <button className="dropdown-item" type="button">
-                                            Thai
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="dropdown-item" type="button">
-                                            Myanmar
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button className="dropdown-item" type="button">
-                                            Arabic
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <p className="copyright-text mt-lg-5 mt-4">
-                                Copyright © 2048 Topic Listing Center. All rights reserved.
-                                <br />
-                                <br />
-                                Design:{" "}
-                                <a rel="nofollow" href="https://templatemo.com" target="_blank">
-                                    TemplateMo
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </>
 
     )
