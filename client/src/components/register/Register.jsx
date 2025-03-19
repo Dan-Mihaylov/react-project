@@ -1,0 +1,139 @@
+import React, { useState, useActionState, useContext } from "react";
+import { useRegister } from "../../api/authApi";
+import { useNavigate } from "react-router";
+import { Link } from "react-router";
+import { CompanyContext } from "../../contexts/CompanyContext";
+
+export default function Register() {
+    const { companyLoginHandler } = useContext(CompanyContext);
+    const { register } = useRegister();
+    const navigate = useNavigate();
+
+    const [error, setError] = useState("");
+
+    const formSubmitHandler = async (initialState, formData) => {
+
+        const data = Object.fromEntries(formData);
+
+        if (data.password !== data.confirmPassword) {
+            setError("Passwords do not match!");
+            return;
+        }
+        setError("");
+
+        // TODO: Other fields validations ...
+        delete data.confirmPassword;
+        
+        const authData = await register(data);
+        delete authData.password;
+
+        if (authData.message) {
+            setError(authData.message);
+            return;
+        }
+
+        companyLoginHandler(authData);
+        navigate('/');
+
+    };
+
+    const [initialState, formAction, callbackLink] = useActionState(
+        formSubmitHandler,
+        {
+            email: '',
+            password: '',
+            companyName: '',
+            companyAddress: '',
+            companyImageUrl: ''
+        }
+    )
+
+    return (
+
+        <div className="container mt-4" style={{ maxWidth: "25rem" }}>
+
+            <div className="card shadow p-4">
+                <h6 className="mb-3 text-left">Agency Registration</h6>
+                <small>
+                    Already have an account? Follow this link to <br /><Link to='/login'> log into your account</Link>
+                </small>
+                <br />
+
+                {error && <div className="alert alert-danger">{error}</div>}
+
+                <form action={formAction}>
+                    <div className="mb-3">
+                        <label className="form-label">Email Address</label>
+                        <input
+                            type="email"
+                            name="email"
+                            className="form-control"
+                            placeholder="Enter email"
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            className="form-control"
+                            placeholder="Enter password"
+                            autoComplete=""
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Confirm Password</label>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            className="form-control"
+                            placeholder="Confirm password"
+                            autoComplete=""
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Company Name</label>
+                        <input
+                            type="text"
+                            name="companyName"
+                            className="form-control"
+                            placeholder="Enter company name"
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Company Address</label>
+                        <input
+                            type="text"
+                            name="companyAddress"
+                            className="form-control"
+                            placeholder="Enter company address"
+                            required
+                        />
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Company Image URL</label>
+                        <input
+                            type="url"
+                            name="companyImageUrl"
+                            className="form-control"
+                            placeholder="Enter image URL"
+                        />
+                    </div>
+
+                    <button type="submit" className="form-control" style={{ backgroundColor: "#80d0c7" }}>
+                        Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+};

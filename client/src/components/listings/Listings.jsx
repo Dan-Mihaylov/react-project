@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function Listings() {
 
     return (
@@ -46,12 +48,12 @@ export default function Listings() {
                                                 pages. Feel free to modify this template for your custom
                                                 websites.
                                             </p>
-                                            <a
-                                                href="topics-detail.html"
+                                            <Link
+                                                to="1/details"
                                                 className="btn custom-btn mt-3 mt-lg-4"
                                             >
                                                 Learn More
-                                            </a>
+                                            </Link>
                                         </div>
                                         <span className="badge bg-design rounded-pill ms-auto">
                                             14
@@ -75,12 +77,12 @@ export default function Listings() {
                                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit
                                                 animi necessitatibus
                                             </p>
-                                            <a
-                                                href="topics-detail.html"
+                                            <Link
+                                                to="2/details"
                                                 className="btn custom-btn mt-3 mt-lg-4"
                                             >
                                                 Learn More
-                                            </a>
+                                            </Link>
                                         </div>
                                         <span className="badge bg-advertising rounded-pill ms-auto">
                                             30
@@ -159,7 +161,7 @@ export default function Listings() {
                                 </ul>
                             </nav>
                         </div>
-                        
+
                     </div>
                 </div>
             </section>

@@ -18,12 +18,11 @@ export default function SectionTimeline() {
                                     <div className="inner" />
                                 </div>
                                 <li>
-                                    <h4 className="text-white mb-3">Search your favourite topic</h4>
+                                    <h4 className="text-white mb-3">Search for your home by location</h4>
                                     <p className="text-white">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Reiciendis, cumque magnam? Sequi, cupiditate quibusdam alias
-                                        illum sed esse ad dignissimos libero sunt, quisquam numquam
-                                        aliquam? Voluptas, accusamus omnis?
+                                        You have finally decided on you first or next home purchase location. Simply 
+                                        search for the location in our homepage search bar, and view properties in the area
+                                        in seconds.
                                     </p>
                                     <div className="icon-holder">
                                         <i className="bi-search" />
@@ -31,25 +30,21 @@ export default function SectionTimeline() {
                                 </li>
                                 <li>
                                     <h4 className="text-white mb-3">
-                                        Bookmark &amp; Keep it for yourself
+                                        Browse listings and get in touch with us
                                     </h4>
                                     <p className="text-white">
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
-                                        animi necessitatibus aperiam repudiandae nam omnis est vel
-                                        quo, nihil repellat quia velit error modi earum similique odit
-                                        labore. Doloremque, repudiandae?
+                                        Browse the listings that we have on our page and get in touch with us as soon as you find the one that you like.
+                                        We will be in touch with you shortly with more details to proceed to the next step in your home purchasing experience.
                                     </p>
                                     <div className="icon-holder">
                                         <i className="bi-bookmark" />
                                     </div>
                                 </li>
                                 <li>
-                                    <h4 className="text-white mb-3">Read &amp; Enjoy</h4>
+                                    <h4 className="text-white mb-3">Make an offer and buy your new home</h4>
                                     <p className="text-white">
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                        Animi vero quisquam, rem assumenda similique voluptas
-                                        distinctio, iste est hic eveniet debitis ut ducimus beatae id?
-                                        Quam culpa deleniti officiis autem?
+                                        If you are finally happy with the property you have viewed, make an offer, we will deliver it to the home-seller 
+                                        upon offer acceptance, you will be ready to move-in in no time.
                                     </p>
                                     <div className="icon-holder">
                                         <i className="bi-book" />
@@ -58,14 +53,7 @@ export default function SectionTimeline() {
                             </ul>
                         </div>
                     </div>
-                    <div className="col-12 text-center mt-5">
-                        <p className="text-white">
-                            Want to learn more?
-                            <a href="#" className="btn custom-btn custom-border-btn ms-3">
-                                Check out Youtube
-                            </a>
-                        </p>
-                    </div>
+
                 </div>
             </div>
         </section>

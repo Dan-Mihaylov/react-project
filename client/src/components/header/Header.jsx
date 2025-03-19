@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { CompanyContext } from "../../contexts/CompanyContext";
 
 export default function Header() {
+    const { companyImageUrl } = useContext(CompanyContext);
 
     return (
         <nav className="navbar navbar-expand-lg">
@@ -23,6 +26,7 @@ export default function Header() {
                 >
                     <span className="navbar-toggler-icon" />
                 </button>
+
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-lg-5 me-lg-auto">
                         <li className="nav-item">
@@ -78,9 +82,14 @@ export default function Header() {
                             </ul>
                         </li>
                     </ul>
+
                     <div className="d-none d-lg-block">
-                        <a href="#top" className="navbar-icon bi-person smoothscroll" />
+                        { !companyImageUrl
+                            ? <Link to="/register" className="navbar-icon bi-person smoothscroll" />
+                            : <Link to="#" className="navbar-icon smoothscroll" style={{overflow: "hidden", backgroundImage: {companyImageUrl}}}> <img src={companyImageUrl} style={{width: "100%", hight: "100%"}}/> </Link>
+                        }
                     </div>
+
                 </div>
             </div>
         </nav>
