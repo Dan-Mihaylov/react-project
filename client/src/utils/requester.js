@@ -1,3 +1,5 @@
+const authKey = 'auth';
+
 export default async function request(url, method, data, options = {}) {
 
     if (method !== 'GET') {

@@ -7,6 +7,7 @@ export const CompanyContext = createContext({
     companyAddress: '',
     companyImageUrl: '',
     accessToken: '',
+    isAuthenticated: false,
     companyLoginHandler: () => null,
     companyLogoutHandler: () => null,
 });

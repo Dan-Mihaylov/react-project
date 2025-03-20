@@ -81,6 +81,13 @@ export default function Header() {
                                 </li>
                             </ul>
                         </li>
+                        
+                        <li className="nav-item">
+                            <Link className="nav-link click-scroll" to="/logout">
+                                Logout
+                            </Link>
+                        </li>
+
                     </ul>
 
                     <div className="d-none d-lg-block">

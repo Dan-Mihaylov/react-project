@@ -8,10 +8,14 @@ import Listing from './components/listings/Listings';
 import ListingDetails from './components/listing-details/ListingDetails';
 import Contacts from './components/contacts/Contacts';
 import Register from './components/register/Register';
-import { useState } from 'react';
+import useLocalStorageState from './hooks/useLocalStorageState';
+import Login from './components/login/Login';
+import Logout from './components/logout/Logout';
+
+const authKey = 'auth';
 
 export default function App() {
-	const [ authData, setAuthData ] = useState({});
+	const [ authData, setAuthData ] = useLocalStorageState(authKey, {});
 
 	const companyLoginHandler = (authData) => {
 		setAuthData(authData);
@@ -31,6 +35,8 @@ export default function App() {
 				<Route path='/listings/:id/details' element={ <ListingDetails /> } />
 				<Route path='/contact' element = { <Contacts /> } />
 				<Route path='/register' element = { <Register /> } />
+				<Route path='/login' element={ <Login />} />
+				<Route path='/logout' element={ <Logout /> } />
 			</Routes>
 			<Footer />
 			</CompanyContext.Provider>

@@ -63,69 +63,78 @@ export default function Register() {
 
                 <form action={formAction}>
                     <div className="mb-3">
-                        <label className="form-label">Email Address</label>
+                        <label className="form-label" htmlFor="email">Email Address</label>
                         <input
                             type="email"
                             name="email"
                             className="form-control"
                             placeholder="Enter email"
+                            autoComplete="email"
+                            id="email"
                             required
                         />
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">Password</label>
+                        <label className="form-label" htmlFor="password">Password</label>
                         <input
                             type="password"
                             name="password"
                             className="form-control"
                             placeholder="Enter password"
-                            autoComplete=""
+                            autoComplete="current-password"
+                            id="password"
                             required
                         />
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">Confirm Password</label>
+                        <label className="form-label" htmlFor="passwordConfirm">Confirm Password</label>
                         <input
                             type="password"
                             name="confirmPassword"
                             className="form-control"
                             placeholder="Confirm password"
-                            autoComplete=""
+                            autoComplete="new-password"
+                            id="passwordConfirm"
                             required
                         />
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">Company Name</label>
+                        <label className="form-label" htmlFor="companyName">Company Name</label>
                         <input
                             type="text"
                             name="companyName"
                             className="form-control"
                             placeholder="Enter company name"
+                            autoComplete="name"
+                            id="companyName"
                             required
                         />
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">Company Address</label>
+                        <label className="form-label" htmlFor="address">Company Address</label>
                         <input
                             type="text"
                             name="companyAddress"
                             className="form-control"
                             placeholder="Enter company address"
+                            autoComplete="street-address"
+                            id="address"
                             required
                         />
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label">Company Image URL</label>
+                        <label className="form-label" htmlForm="imageUrl">Company Image URL</label>
                         <input
                             type="url"
                             name="companyImageUrl"
                             className="form-control"
                             placeholder="Enter image URL"
+                            id="imageUrl"
                         />
                     </div>
 
