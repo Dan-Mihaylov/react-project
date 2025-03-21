@@ -6,7 +6,7 @@ const authKey = 'auth';
 export const useAuth = () => {
     const options = {
         headers: {
-            'X-Authorization': localStorage.getItem(authKey).accessToken
+            'X-Authorization': JSON.parse(localStorage.getItem(authKey)).accessToken
         }
     };
 

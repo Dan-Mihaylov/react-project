@@ -1,10 +1,11 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) { 'use strict';
+        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) {
+    'use strict';
 
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -13,14 +14,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError'; 
+            this.name = 'ServiceError';
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError'; 
+            this.name = 'NotFoundError';
             this.status = 404;
         }
     }
@@ -28,7 +29,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError'; 
+            this.name = 'RequestError';
             this.status = 400;
         }
     }
@@ -36,7 +37,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError'; 
+            this.name = 'ConflictError';
             this.status = 409;
         }
     }
@@ -44,7 +45,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError'; 
+            this.name = 'AuthorizationError';
             this.status = 401;
         }
     }
@@ -52,7 +53,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError'; 
+            this.name = 'CredentialError';
             this.status = 403;
         }
     }
@@ -563,8 +564,8 @@
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
             }
-    		
-    		if (query.distinct) {
+
+            if (query.distinct) {
                 const props = query.distinct.split(',').filter(p => p != '');
                 responseData = Object.values(responseData.reduce((distinct, c) => {
                     const key = props.map(p => c[p]).join('::');
@@ -800,7 +801,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k,v]) => {
+        Object.entries(body).forEach(([k, v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -938,7 +939,7 @@
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-         function merge(collection, id, data) {
+        function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -1325,56 +1326,134 @@
 
     var identity = "email";
     var protectedData = {
-    	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			email: "peter@abv.bg",
-    			username: "Peter",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			email: "george@abv.bg",
-    			username: "George",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-    			email: "admin@abv.bg",
-    			username: "Admin",
-    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
-    	},
-    	sessions: {
-    	}
+        users: {
+            "35c62d76-8152-4626-8712-eeb96381bea8": {
+                email: "peter@abv.bg",
+                username: "Peter",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-5173e2f9c93a": {
+                email: "george@abv.bg",
+                username: "George",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                email: "admin@abv.bg",
+                username: "Admin",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            }
+        },
+        sessions: {
+        }
     };
     var seedData = {
-        
+
+        properties: [
+            {
+                "title": "Modern Loft in Downtown LA",
+                "thumbnail": "https://canarywharf.com/wp-content/uploads/2023/12/Advantages-of-loft-apartment-living-at-Canary-Wharf.png",
+                "address": "456 Main Street, Los Angeles, CA 90012",
+                "price": "480000",
+                "bedrooms": "2",
+                "bathrooms": "2",
+                "sqMeters": "80",
+                "garage": "on",
+                "garden": "off",
+                "image1": "https://na.rdcpix.com/abfa043892293e489198504e3db49f46w-c1008045376srd_q80.jpg",
+                "image2": "https://www.rodaonline.com/wp-content/uploads/C_IMG_sky_loft_apartment_04-900x540.jpg",
+                "description": "A stunning loft located in the heart of downtown LA, featuring high ceilings, large windows, and top-tier amenities. Walking distance to cafes, shopping, and nightlife.",
+                "agency": "Sunset Realty",
+                "_createdOn": 1742559923942,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "33174dab-d050-426c-874f-d0054190f785",
+                "_id": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Cozy Suburban Home with Garden",
+                "thumbnail": "https://content.knightfrank.com/blog/2023/3/00bfec89-ffc1-410b-b04e-e0da370b1bf5/hampshire-garden-1.jpg",
+                "address": "789 Willow Drive, Austin, TX 73301",
+                "price": "375000",
+                "bedrooms": "3",
+                "bathrooms": "2",
+                "sqMeters": "120",
+                "garage": "on",
+                "garden": "on",
+                "image1": "https://hips.hearstapps.com/hmg-prod/images/priors-crescent-living-room-haus-interiors-show-home-1602462623.jpg?crop=1xw:0.8438705529361338xh;center,top&resize=1200:*",
+                "image2": "https://www.taylorwimpey.co.uk/-/twdxmedia/images/national/sales-and-marketing/inspire-me/trends/lagom-article/taylor-wimpey-lagom-trend-12.jpg?la=en&h=768&w=1152&mw=1152&hash=C0A3B5E8078783D58F45FF17F6408314",
+                "description": "A perfect home for families, with a spacious backyard, lush garden, and a peaceful suburban setting. Close to top-rated schools and shopping centers.",
+                "agency": "Austin Homes",
+                "_createdOn": 1742559923942,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "33174dab-d050-426c-874f-d0054190f785",
+                "_id": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Luxury Penthouse Overlooking Central Park",
+                "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC68mJQpSdmreRsfZGS2f55eSxL6NdsKbHEw&s",
+                "address": "12 Central Park West, New York, NY 10023",
+                "price": "2900000",
+                "bedrooms": "4",
+                "bathrooms": "3",
+                "sqMeters": "200",
+                "garage": "on",
+                "garden": "off",
+                "image1": "https://20thebarons.co.uk/wp-content/uploads/elementor/thumbs/W_36-Hill-View-Loft-Terrace-20-The-Barons-Luxury-Serviced-Apartments-Richmond-Twickenham-South-West-London-TW1-pz7gyuynqmj5nv7j3ete688vxl8cscrun7of0u4m8w.jpg",
+                "image2": "https://thumbs.nestseekers.com/PeGCbGUmSenNUpw.jpg",
+                "description": "An exquisite penthouse offering breathtaking views of Central Park, floor-to-ceiling windows, a gourmet kitchen, and high-end finishes throughout.",
+                "agency": "Empire Realty",
+                "_createdOn": 1742559923942,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "33174dab-d050-426c-874f-d0054190f785",
+                "_id": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Seaside Villa with Private Beach",
+                "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-dDRzx-UwJ0ZYjt3VK2g3UDnGcqxPr-j2w&s",
+                "address": "Ocean Drive, Malibu, CA 90265",
+                "price": "5600000",
+                "bedrooms": "5",
+                "bathrooms": "4",
+                "sqMeters": "350",
+                "garage": "on",
+                "garden": "on",
+                "image1": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/505130364.jpg?k=353d8b3fa9e6332708b12b053cf41c987337d1fbfbe1a283605cae7601922348&o=&hp=1",
+                "image2": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/570382143.jpg?k=d0a9ac8cfd53f85a50e41845d9e6ea224696da19d6e210f65208a78354b4b905&o=&hp=1",
+                "description": "A breathtaking beachfront villa with direct access to the ocean, a private infinity pool, and world-class luxury amenities. Perfect for a dream getaway.",
+                "agency": "Malibu Elite Realty",
+                "_createdOn": 1742559923942,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "33174dab-d050-426c-874f-d0054190f785",
+                "_id": "60f0cf0b-34b0-4abd-9769-8c42f830dffc"
+            },
+        ],
     };
     var rules$1 = {
-    	users: {
-    		".create": false,
-    		".read": [
-    			"Owner"
-    		],
-    		".update": false,
-    		".delete": false
-    	},
-    	members: {
-    		".update": "isOwner(user, get('teams', data.teamId))",
-    		".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
-    		"*": {
-    			teamId: {
-    				".update": "newData.teamId = data.teamId"
-    			},
-    			status: {
-    				".create": "newData.status = 'pending'"
-    			}
-    		}
-    	}
+        users: {
+            ".create": false,
+            ".read": [
+                "Owner"
+            ],
+            ".update": false,
+            ".delete": false
+        },
+        members: {
+            ".update": "isOwner(user, get('teams', data.teamId))",
+            ".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
+            "*": {
+                teamId: {
+                    ".update": "newData.teamId = data.teamId"
+                },
+                status: {
+                    ".create": "newData.status = 'pending'"
+                }
+            }
+        }
     };
     var settings = {
-    	identity: identity,
-    	protectedData: protectedData,
-    	seedData: seedData,
-    	rules: rules$1
+        identity: identity,
+        protectedData: protectedData,
+        seedData: seedData,
+        rules: rules$1
     };
 
     const plugins = [

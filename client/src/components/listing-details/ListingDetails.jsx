@@ -1,6 +1,18 @@
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router";
+import { useProperty } from "../../api/propertyApi";
 
 export default function ListingDetails(props) {
+    const [property, setProperty] = useState({});
+    const { propId } = useParams();
+    const { getProperty } = useProperty();
+
+    useEffect(() => {
+
+        getProperty(propId)
+        .then(setProperty);
+
+    }, [propId])
 
     return (
         <>
@@ -17,13 +29,13 @@ export default function ListingDetails(props) {
                                             <Link to="/">Homepage</Link>
                                         </li>
                                         <li className="breadcrumb-item active" aria-current="page">
-                                            £195.000
+                                            £{property.price}
                                         </li>
                                     </ol>
                                 </nav>
 
                                 <h2 className="text-white">
-                                    Two bedroom apartment in the heart of Sofia
+                                    {property.title}
                                 </h2>
 
                                 <div className="d-flex align-items-center mt-5">
@@ -33,7 +45,7 @@ export default function ListingDetails(props) {
                                     >
                                         More Info
                                     </a>
-                                    <p href="#top" className="custom-icon"> £195.000 </p>
+                                    <p href="#top" className="custom-icon"> £{property.price} </p>
                                 </div>
 
                             </div>
@@ -41,7 +53,7 @@ export default function ListingDetails(props) {
                             <div className="col-lg-5 col-12">
                                 <div className="topics-detail-block bg-white shadow-lg">
                                     <img
-                                        src="/images/topics/undraw_Remote_design_team_re_urdx.png"
+                                        src={property.thumbnail}
                                         className="topics-detail-block-image img-fluid"
                                     />
                                 </div>
@@ -61,48 +73,39 @@ export default function ListingDetails(props) {
 
                         <div className="row">
                             <div className="col-lg-8 col-12 m-auto">
-                                <h3 className="mb-4">Two bedroom apartment in the heart of Sofia</h3>
+                                <h3 className="mb-4">{property.title}</h3>
                                 <p>
-                                    So how can you stand out, do something unique and interesting,
-                                    build an online business, and get paid enough to change life.
-                                    Please visit TemplateMo website to download free website
-                                    templates.
-                                </p>
-                                <p>
-                                    <strong>There are so many ways to make money online</strong>.
-                                    Below are several platforms you can use to find success. Keep in
-                                    mind that there is no one path everyone can take. If that were the
-                                    case, everyone would have a million dollars.
+                                   {property.description}
                                 </p>
 
                                 <blockquote style={{textAlign: "left", width: "100%", margin: "0"}}>
                                     <ul>
                                         <li>
-                                            Bedrooms: 2
+                                            Bedrooms: {property.bedrooms}
                                         </li>
                                         <li>
-                                            Bathrooms: 1
+                                            Bathrooms: {property.bathrooms}
                                         </li>
                                         <li>
-                                            Garage: Not available
+                                            Garage: {property.garage ? "Available" : "Not available"}
                                         </li>
                                         <li>
-                                            Garden: Communal Garden
+                                            Garden: {property.garden ? "Available" : "Not available"}
                                         </li>
-                                        <li>Address: Tsarigradsko shose pod mosta v liavo 200</li>
+                                        <li>Address: {property.address} </li>
                                     </ul>
                                 </blockquote>
 
                                 <div className="row my-4">
                                     <div className="col-lg-6 col-md-6 col-12">
                                         <img
-                                            src="/images/businesswoman-using-tablet-analysis.jpg"
+                                            src={property.image1}
                                             className="topics-detail-block-image img-fluid"
                                         />
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-12 mt-4 mt-lg-0 mt-md-0">
                                         <img
-                                            src="/images/colleagues-working-cozy-office-medium-shot.jpg"
+                                            src={property.image2}
                                             className="topics-detail-block-image img-fluid"
                                         />
                                     </div>

@@ -11,6 +11,8 @@ import Register from './components/register/Register';
 import useLocalStorageState from './hooks/useLocalStorageState';
 import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
+import ListingCreate from './components/listing-create/ListingCreate';
+import ListingEdit from './components/listing-edit/ListingEdit';
 
 const authKey = 'auth';
 
@@ -32,11 +34,13 @@ export default function App() {
 			<Routes>
 				<Route path='' element={ <Home /> }/>
 				<Route path='/listings' element= { <Listing /> } />
-				<Route path='/listings/:id/details' element={ <ListingDetails /> } />
 				<Route path='/contact' element = { <Contacts /> } />
 				<Route path='/register' element = { <Register /> } />
 				<Route path='/login' element={ <Login />} />
 				<Route path='/logout' element={ <Logout /> } />
+				<Route path='/listings/create' element= { <ListingCreate /> } />
+				<Route path='/listings/:propId/edit' element={ <ListingEdit /> } />
+				<Route path='/listings/:propId/details' element={ <ListingDetails /> } />
 			</Routes>
 			<Footer />
 			</CompanyContext.Provider>

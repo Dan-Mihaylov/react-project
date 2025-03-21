@@ -15,6 +15,6 @@ export default function Logout () {
 
     return !isAuthenticated 
     ? <Navigate to="/" />
-    : <h1>Logging Out</h1>
+    : <h1>Logging Out...</h1>
     
 }

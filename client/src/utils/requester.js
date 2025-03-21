@@ -19,7 +19,7 @@ export default async function request(url, method, data, options = {}) {
 
     const response = await fetch(url, options);
 
-    if (response.status === 204) {
+    if (response.status === 204 || response.status === 404) {
         return;
     }
 

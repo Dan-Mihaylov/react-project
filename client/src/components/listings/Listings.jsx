@@ -15,11 +15,11 @@ export default function Listings() {
                                         <a href="index.html">Homepage</a>
                                     </li>
                                     <li className="breadcrumb-item active" aria-current="page">
-                                        Topics Listing
+                                        Listings
                                     </li>
                                 </ol>
                             </nav>
-                            <h2 className="text-white">Topics Listing</h2>
+                            <h2 className="text-white">Property Listings</h2>
                         </div>
                     </div>
                 </div>
@@ -29,10 +29,12 @@ export default function Listings() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 col-12 text-center">
-                            <h3 className="mb-4">Popular Topics</h3>
+                            <h3 className="mb-4">All Properties</h3>
                         </div>
+                        
                         <div className="col-lg-8 col-12 mt-3 mx-auto">
                             
+                            {/* Properties List Starts here */}
                             <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
                                 <div className="d-flex">
                                     <img
@@ -118,7 +120,10 @@ export default function Listings() {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
+
+                        {/* Page paginator goes here... */}
 
                         <div className="col-lg-12 col-12">
                             <nav aria-label="Page navigation example">
@@ -165,12 +170,18 @@ export default function Listings() {
                     </div>
                 </div>
             </section>
+
+            {/* Popular properties */}
             <section className="section-padding section-bg">
+                
                 <div className="container">
+
                     <div className="row">
+                       
                         <div className="col-lg-12 col-12">
-                            <h3 className="mb-4">Trending Topics</h3>
+                            <h3 className="mb-4">Popular Properties</h3>
                         </div>
+                        
                         <div className="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
                             <div className="custom-block bg-white shadow-lg">
                                 <a href="topics-detail.html">
@@ -193,54 +204,36 @@ export default function Listings() {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-lg-6 col-md-6 col-12 mt-lg-3">
-                            <div className="custom-block custom-block-overlay">
-                                <div className="d-flex flex-column h-100">
+                        
+                        <div className="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
+                            <div className="custom-block bg-white shadow-lg">
+                                <a href="topics-detail.html">
+                                    <div className="d-flex">
+                                        <div>
+                                            <h5 className="mb-2">Investment</h5>
+                                            <p className="mb-0">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum architecto molestias odio itaque dignissimos illo repellendus distinctio maiores veritatis, debitis a quidem voluptate unde facilis iste ullam perspiciatis minus earum?
+                                            </p>
+                                        </div>
+                                        <span className="badge bg-finance rounded-pill ms-auto">
+                                            30
+                                        </span>
+                                    </div>
                                     <img
-                                        src="images/businesswoman-using-tablet-analysis.jpg"
+                                        src="images/topics/undraw_Finance_re_gnv2.png"
                                         className="custom-block-image img-fluid"
                                         alt=""
                                     />
-                                    <div className="custom-block-overlay-text d-flex">
-                                        <div>
-                                            <h5 className="text-white mb-2">Finance</h5>
-                                            <p className="text-white">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                                Sint animi necessitatibus aperiam repudiandae nam omnis
-                                            </p>
-                                            <a
-                                                href="topics-detail.html"
-                                                className="btn custom-btn mt-2 mt-lg-3"
-                                            >
-                                                Learn More
-                                            </a>
-                                        </div>
-                                        <span className="badge bg-finance rounded-pill ms-auto">
-                                            25
-                                        </span>
-                                    </div>
-                                    <div className="social-share d-flex">
-                                        <p className="text-white me-4">Share:</p>
-                                        <ul className="social-icon">
-                                            <li className="social-icon-item">
-                                                <a href="#" className="social-icon-link bi-twitter" />
-                                            </li>
-                                            <li className="social-icon-item">
-                                                <a href="#" className="social-icon-link bi-facebook" />
-                                            </li>
-                                            <li className="social-icon-item">
-                                                <a href="#" className="social-icon-link bi-pinterest" />
-                                            </li>
-                                        </ul>
-                                        <a href="#" className="custom-icon bi-bookmark ms-auto" />
-                                    </div>
-                                    <div className="section-overlay" />
-                                </div>
+                                </a>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
+
             </section>
+
         </>
 
     )

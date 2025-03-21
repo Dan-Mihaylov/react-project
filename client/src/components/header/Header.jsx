@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { CompanyContext } from "../../contexts/CompanyContext";
 
 export default function Header() {
-    const { companyImageUrl } = useContext(CompanyContext);
+    const { companyImageUrl, isAuthenticated } = useContext(CompanyContext);
 
     return (
         <nav className="navbar navbar-expand-lg">
@@ -63,7 +63,7 @@ export default function Header() {
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
                             >
-                                Pages
+                                More
                             </a>
                             <ul
                                 className="dropdown-menu dropdown-menu-light"
@@ -71,7 +71,7 @@ export default function Header() {
                             >
                                 <li>
                                     <Link className="dropdown-item" to="/listings">
-                                        Topics Listing
+                                        Listings
                                     </Link>
                                 </li>
                                 <li>
@@ -79,21 +79,36 @@ export default function Header() {
                                         Contact Form
                                     </Link>
                                 </li>
+                                {isAuthenticated
+                                    &&
+                                    <li>
+                                        <Link className="dropdown-item" to="/listings/create">
+                                            Create Listing
+                                        </Link>
+                                    </li>
+                                }
                             </ul>
                         </li>
-                        
-                        <li className="nav-item">
-                            <Link className="nav-link click-scroll" to="/logout">
-                                Logout
-                            </Link>
-                        </li>
-
+                        {isAuthenticated
+                            ?
+                            <li className="nav-item">
+                                <Link className="nav-link click-scroll" to="/logout">
+                                    Logout
+                                </Link>
+                            </li>
+                            :
+                            <li className="nav-item">
+                                <Link className="nav-link click-scroll" to="/login">
+                                    Login
+                                </Link>
+                            </li>
+                        }
                     </ul>
 
                     <div className="d-none d-lg-block">
-                        { !companyImageUrl
+                        {!companyImageUrl
                             ? <Link to="/register" className="navbar-icon bi-person smoothscroll" />
-                            : <Link to="#" className="navbar-icon smoothscroll" style={{overflow: "hidden", backgroundImage: {companyImageUrl}}}> <img src={companyImageUrl} style={{width: "100%", hight: "100%"}}/> </Link>
+                            : <Link to="#" className="navbar-icon smoothscroll" style={{ overflow: "hidden", backgroundImage: { companyImageUrl } }}> <img src={companyImageUrl} style={{ width: "100%", hight: "100%" }} /> </Link>
                         }
                     </div>
 
