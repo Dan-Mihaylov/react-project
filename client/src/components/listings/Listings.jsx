@@ -1,6 +1,18 @@
 import { Link } from "react-router";
+import ListingItem from "../listing-item/ListingItem";
+import { useProperty } from "../../api/propertyApi";
+import { useEffect, useState } from "react";
 
 export default function Listings() {
+    const { getProperties } = useProperty();
+    const [properties, setProperties] = useState([]);
+
+    useEffect(() => {
+
+        getProperties()
+            .then(setProperties)
+
+    }, [])
 
     return (
         <>
@@ -31,95 +43,16 @@ export default function Listings() {
                         <div className="col-lg-12 col-12 text-center">
                             <h3 className="mb-4">All Properties</h3>
                         </div>
-                        
+
                         <div className="col-lg-8 col-12 mt-3 mx-auto">
-                            
+
                             {/* Properties List Starts here */}
-                            <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                                <div className="d-flex">
-                                    <img
-                                        src="images/topics/undraw_Remote_design_team_re_urdx.png"
-                                        className="custom-block-image img-fluid"
-                                        alt=""
-                                    />
-                                    <div className="custom-block-topics-listing-info d-flex">
-                                        <div>
-                                            <h5 className="mb-2">Web Design</h5>
-                                            <p className="mb-0">
-                                                Topic Listing includes home, listing, detail and contact
-                                                pages. Feel free to modify this template for your custom
-                                                websites.
-                                            </p>
-                                            <Link
-                                                to="1/details"
-                                                className="btn custom-btn mt-3 mt-lg-4"
-                                            >
-                                                Learn More
-                                            </Link>
-                                        </div>
-                                        <span className="badge bg-design rounded-pill ms-auto">
-                                            14
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            {
+                                properties.map(property =>
+                                    <ListingItem key={property._id} item={property} />
+                                )
+                            }
 
-                            <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                                <div className="d-flex">
-                                    <img
-                                        src="images/topics/undraw_online_ad_re_ol62.png"
-                                        className="custom-block-image img-fluid"
-                                        alt=""
-                                    />
-                                    <div className="custom-block-topics-listing-info d-flex">
-                                        <div>
-                                            <h5 className="mb-2">Advertising</h5>
-                                            <p className="mb-0">
-                                                Visit TemplateMo website to download free CSS templates.
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit
-                                                animi necessitatibus
-                                            </p>
-                                            <Link
-                                                to="2/details"
-                                                className="btn custom-btn mt-3 mt-lg-4"
-                                            >
-                                                Learn More
-                                            </Link>
-                                        </div>
-                                        <span className="badge bg-advertising rounded-pill ms-auto">
-                                            30
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                                <div className="d-flex">
-                                    <img
-                                        src="images/topics/undraw_Podcast_audience_re_4i5q.png"
-                                        className="custom-block-image img-fluid"
-                                        alt=""
-                                    />
-                                    <div className="custom-block-topics-listing-info d-flex">
-                                        <div>
-                                            <h5 className="mb-2">Podcast</h5>
-                                            <p className="mb-0">
-                                                Lorem ipsum dolor, sit amet consectetur adipisicing elit
-                                                animi necessitatibus
-                                            </p>
-                                            <a
-                                                href="topics-detail.html"
-                                                className="btn custom-btn mt-3 mt-lg-4"
-                                            >
-                                                Learn More
-                                            </a>
-                                        </div>
-                                        <span className="badge bg-music rounded-pill ms-auto">
-                                            20
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
 
@@ -173,15 +106,15 @@ export default function Listings() {
 
             {/* Popular properties */}
             <section className="section-padding section-bg">
-                
+
                 <div className="container">
 
                     <div className="row">
-                       
+
                         <div className="col-lg-12 col-12">
                             <h3 className="mb-4">Popular Properties</h3>
                         </div>
-                        
+
                         <div className="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
                             <div className="custom-block bg-white shadow-lg">
                                 <a href="topics-detail.html">
@@ -204,7 +137,7 @@ export default function Listings() {
                                 </a>
                             </div>
                         </div>
-                        
+
                         <div className="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
                             <div className="custom-block bg-white shadow-lg">
                                 <a href="topics-detail.html">

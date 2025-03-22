@@ -29,7 +29,7 @@ export default function ListingDetails(props) {
                                             <Link to="/">Homepage</Link>
                                         </li>
                                         <li className="breadcrumb-item active" aria-current="page">
-                                            £{property.price}
+                                            £{Number(property.price).toLocaleString('en-US')}
                                         </li>
                                     </ol>
                                 </nav>
@@ -45,7 +45,7 @@ export default function ListingDetails(props) {
                                     >
                                         More Info
                                     </a>
-                                    <p href="#top" className="custom-icon"> £{property.price} </p>
+                                    <p href="#top" className="custom-icon"> £{Number(property.price).toLocaleString('en-US')} </p>
                                 </div>
 
                             </div>
