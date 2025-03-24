@@ -1,24 +1,11 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { useShortDescription } from "../../hooks/useShortDescription";
 
 export default function ListingItem({
     item,
 }) {
 
-    const [shortDescription, setShortDescription] = useState('');
-
-    useEffect(() => {
-
-        if (!item.description) {
-            return;
-        };
-
-        const shortDescription = item.description.length > 100
-            ? `${item.description.slice(0, 100)}...`
-            : item.description;
-
-        setShortDescription(shortDescription);
-    }, [item])
+    const { shortDescription } = useShortDescription(item.description)
 
     return (
         <div className="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { CompanyContext } from "../../contexts/CompanyContext";
 import { useProperty } from "../../api/propertyApi";
 import ListingForm from "../listing-form/ListingForm";

@@ -18,15 +18,22 @@ export default function ListingForm (
             <form action={ formAction }>
                 {/* Title */}
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                         <div className="mb-3">
                             <label className="form-label" htmlFor="title">Property Title</label>
                             <input type="text" name="title" id="title" className="form-control" placeholder="Enter property title" defaultValue={ data.title } required />
                         </div>
                     </div>
 
+                    <div className="col-md-4">
+                        <div className="mb-3">
+                            <label className="form-label" htmlFor="type">Property Type</label>
+                            <input type="text" name="type" id="type" className="form-control" placeholder="ex. Apartment, House, Vila . . ." defaultValue={ data.type } required />
+                        </div>
+                    </div>
+
                     {/* Thumbnail */}
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                         <div className="mb-3">
                             <label className="form-label" htmlFor="thumbnail">Thumbnail Image URL</label>
                             <input type="url" name="thumbnail" id="thumbnail" className="form-control" placeholder="Enter image URL" defaultValue={ data.thumbnail } required />

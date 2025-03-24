@@ -1352,6 +1352,7 @@
             {
                 "title": "Modern Loft in Downtown LA",
                 "thumbnail": "https://canarywharf.com/wp-content/uploads/2023/12/Advantages-of-loft-apartment-living-at-Canary-Wharf.png",
+                "type": "Apartment",
                 "address": "456 Main Street, Los Angeles, CA 90012",
                 "price": "480000",
                 "bedrooms": "2",
@@ -1371,6 +1372,7 @@
             {
                 "title": "Cozy Suburban Home with Garden",
                 "thumbnail": "https://content.knightfrank.com/blog/2023/3/00bfec89-ffc1-410b-b04e-e0da370b1bf5/hampshire-garden-1.jpg",
+                "type":"House",
                 "address": "789 Willow Drive, Austin, TX 73301",
                 "price": "375000",
                 "bedrooms": "3",
@@ -1390,6 +1392,7 @@
             {
                 "title": "Luxury Penthouse Overlooking Central Park",
                 "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC68mJQpSdmreRsfZGS2f55eSxL6NdsKbHEw&s",
+                "type":"Apartment",
                 "address": "12 Central Park West, New York, NY 10023",
                 "price": "2900000",
                 "bedrooms": "4",
@@ -1409,6 +1412,7 @@
             {
                 "title": "Seaside Villa with Private Beach",
                 "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-dDRzx-UwJ0ZYjt3VK2g3UDnGcqxPr-j2w&s",
+                "type":"Vila",
                 "address": "Ocean Drive, Malibu, CA 90265",
                 "price": "5600000",
                 "bedrooms": "5",
