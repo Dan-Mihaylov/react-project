@@ -1412,7 +1412,7 @@
             {
                 "title": "Seaside Villa with Private Beach",
                 "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-dDRzx-UwJ0ZYjt3VK2g3UDnGcqxPr-j2w&s",
-                "type":"Vila",
+                "type":"Villa",
                 "address": "Ocean Drive, Malibu, CA 90265",
                 "price": "5600000",
                 "bedrooms": "5",

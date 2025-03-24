@@ -22,12 +22,12 @@ export default function ListingItem({
                         <p className="mb-0">
                             {shortDescription}
                         </p>
-                        <Link
-                            to={`/listings/${item._id}/details`}
+                        <a
+                            href={`/listings/${item._id}/details`}
                             className="btn custom-btn mt-3 mt-lg-4"
                         >
                             Property Details
-                        </Link>
+                        </a>
                     </div>
                     <span className="badge bg-design rounded-pill ms-auto">
                         14

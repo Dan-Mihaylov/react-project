@@ -1,4 +1,23 @@
+import { useState, useEffect } from "react";
+import { useProperty } from "../../api/propertyApi";
+import ExploreItem from "../explore-item/ExploreItem";
+
 export default function SectionExplore() {
+
+    const { getPropertiesByType } = useProperty();
+    const [ propertyType, setPropertyType ] = useState('Apartment');
+    const [ properties, setProperties ] = useState([]);
+
+    useEffect(() => {
+
+        getPropertiesByType(propertyType)
+        .then(setProperties)
+
+    }, [propertyType]);
+
+    const propertyChangeClickHandler = (propType)=> {
+        setPropertyType(propType);
+    }
 
     return (
         <section className="explore-section section-padding" id="section_2">
@@ -24,6 +43,7 @@ export default function SectionExplore() {
                                 role="tab"
                                 aria-controls="apartments-tab-pane"
                                 aria-selected="true"
+                                onClick={ () => propertyChangeClickHandler('Apartment') }
                             >
                                 Apartments
                             </button>
@@ -38,6 +58,7 @@ export default function SectionExplore() {
                                 role="tab"
                                 aria-controls="houses-tab-pane"
                                 aria-selected="false"
+                                onClick={ () => propertyChangeClickHandler('House') }
                             >
                                 Houses
                             </button>
@@ -52,6 +73,7 @@ export default function SectionExplore() {
                                 role="tab"
                                 aria-controls="villas-tab-pane"
                                 aria-selected="false"
+                                onClick={ () => propertyChangeClickHandler('Villa') }
                             >
                                 Villas
                             </button>
@@ -74,7 +96,11 @@ export default function SectionExplore() {
 
                                 <div className="row">
 
-                                {/* Apartment listings go here */}
+                                {
+                                    propertyType === 'Apartment'
+                                    &&
+                                    properties.map(property => <ExploreItem key={property._id} item={property} />)
+                                }
                                     
 
 
@@ -87,10 +113,13 @@ export default function SectionExplore() {
                                 aria-labelledby="houses-tab"
                                 tabIndex={0}
                             >
-                                <div className="row">
-                                    
+                                <div className="row">     
 
-                                    {/* House Listings go here */}
+                                {
+                                    propertyType === 'House'
+                                    &&
+                                    properties.map(property => <ExploreItem key={property._id} item={property} />)
+                                }
 
                                 </div>
                             </div>
@@ -104,8 +133,11 @@ export default function SectionExplore() {
                             >
                                 <div className="row">
 
-
-                                    {/* Villas listings go here */}
+                                {
+                                    propertyType === 'Villa'
+                                    &&
+                                    properties.map(property => <ExploreItem key={property._id} item={property} />)
+                                }
 
                                 </div>
                             </div>

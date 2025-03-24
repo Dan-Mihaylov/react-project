@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { useShortDescription } from "../../hooks/useShortDescription"
 
 export default function ExploreItem({
@@ -9,7 +10,7 @@ export default function ExploreItem({
     return (
         <div className="col-lg-4 col-12 mb-4 mb-lg-0">
             <div className="custom-block bg-white shadow-lg">
-                <a href="topics-detail.html">
+                <a href={`/listings/${item._id}/details`}>
                     <div className="d-flex">
                         <div>
                             <h6>£{Number(item.price).toLocaleString('en-US')}</h6>
