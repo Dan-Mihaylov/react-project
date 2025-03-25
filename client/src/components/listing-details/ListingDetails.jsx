@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { useProperty } from "../../api/propertyApi";
 
-export default function ListingDetails(props) {
+export default function ListingDetails() {
     const [property, setProperty] = useState({});
     const { propId } = useParams();
     const { getProperty } = useProperty();

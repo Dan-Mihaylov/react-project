@@ -128,7 +128,7 @@ export default function Register() {
                     </div>
 
                     <div className="mb-3">
-                        <label className="form-label" htmlForm="imageUrl">Company Image URL</label>
+                        <label className="form-label" htmlFor="imageUrl">Company Image URL</label>
                         <input
                             type="url"
                             name="companyImageUrl"

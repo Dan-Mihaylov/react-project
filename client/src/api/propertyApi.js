@@ -18,7 +18,11 @@ export const useProperty = () => {
     const getProperties = async () => {
         // Will return 404 if collection does not exist.
         const response = await request(baseUrl, 'GET');
+        if (response.error) {
+            return [];
+        }
         return response;
+
     };
 
     const getPropertiesByType = async (propertyType) => {
@@ -30,6 +34,9 @@ export const useProperty = () => {
         });
 
         const response = await request(`${baseUrl}?${urlSearchParams.toString()}`, 'GET');
+        if (response.error) {
+            return [];
+        }
         return response;
 
     }
@@ -60,10 +67,13 @@ export const useLatestProperties = () => {
             sortBy: '_createdOn desc',
             pageSize: latestPageSize
         });
+
         const response = await request(`${baseUrl}?${urlSearchParams.toString()}`);
-        console.log(response);
-        
+        if (response.error) {
+            return [];
+        };
         return response;
+
     };
 
     return {

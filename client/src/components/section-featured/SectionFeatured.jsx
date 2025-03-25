@@ -8,8 +8,10 @@ export default function SectionFeatured() {
     const [ properties, setProperties ] = useState([]);
 
     useEffect(() => {
+
         latestProperties()
         .then(setProperties)
+
     }, [])
 
     return (

@@ -4,11 +4,12 @@ const baseUrl = 'http://localhost:3030/users'
 const authKey = 'auth';
 
 export const useAuth = () => {
-    const options = {
-        headers: {
-            'X-Authorization': JSON.parse(localStorage.getItem(authKey)).accessToken
-        }
-    };
+
+
+    const options = localStorage.getItem(authKey) && JSON.parse(localStorage.getItem(authKey)).accessToken
+        ? { headers: { 'X-Authorization': JSON.parse(localStorage.getItem(authKey)).accessToken } }
+        : {}
+
 
     return {
         options
@@ -32,7 +33,7 @@ export const useRegister = () => {
 export const useLogin = () => {
 
     const login = async (email, password) => {
-        const response = await request(`${baseUrl}/login`, 'POST', {email, password});
+        const response = await request(`${baseUrl}/login`, 'POST', { email, password });
         return response;
     };
 

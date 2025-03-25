@@ -17,14 +17,20 @@ export default async function request(url, method, data, options = {}) {
         }
     }
 
-    const response = await fetch(url, options);
+    try {
+        const response = await fetch(url, options);
 
-    if (response.status === 204 || response.status === 404) {
-        return;
+        if (response.status === 204 || response.status === 404) {
+            return;
+        }
+
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        return {
+            'error': true,
+            'message': error.message
+        }
     }
-
-    const result = await response.json();
-
-    return result;
-
 }
