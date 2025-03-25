@@ -13,11 +13,14 @@ import Login from './components/login/Login';
 import Logout from './components/logout/Logout';
 import ListingCreate from './components/listing-create/ListingCreate';
 import ListingEdit from './components/listing-edit/ListingEdit';
+import GuestGuard from './guards/GuestGuard';
+import AuthGuard from './guards/AuthGuard';
+import ListingOwnerGuard from './guards/ListingOwnerGuard';
 
 const authKey = 'auth';
 
 export default function App() {
-	const [ authData, setAuthData ] = useLocalStorageState(authKey, {});
+	const [authData, setAuthData] = useLocalStorageState(authKey, {});
 
 	const companyLoginHandler = (authData) => {
 		setAuthData(authData);
@@ -29,20 +32,30 @@ export default function App() {
 
 	return (
 		<>
-			<CompanyContext.Provider value={{...authData, companyLoginHandler, companyLogoutHandler}} >
-			<Header />
-			<Routes>
-				<Route path='' element={ <Home /> }/>
-				<Route path='/listings' element= { <Listing /> } />
-				<Route path='/contact' element = { <Contacts /> } />
-				<Route path='/register' element = { <Register /> } />
-				<Route path='/login' element={ <Login />} />
-				<Route path='/logout' element={ <Logout /> } />
-				<Route path='/listings/create' element= { <ListingCreate /> } />
-				<Route path='/listings/:propId/edit' element={ <ListingEdit /> } />
-				<Route path='/listings/:propId/details' element={ <ListingDetails /> } />
-			</Routes>
-			<Footer />
+			<CompanyContext.Provider value={{ ...authData, companyLoginHandler, companyLogoutHandler }} >
+				<Header />
+				<Routes>
+					<Route path='' element={<Home />} />
+					<Route path='/listings' element={<Listing />} />
+					<Route path='/contact' element={<Contacts />} />
+
+					<Route element={<GuestGuard />}>
+						<Route path='/register' element={<Register />} />
+						<Route path='/login' element={<Login />} />
+					</Route>
+
+					<Route element={<AuthGuard />}>
+						<Route path='/logout' element={<Logout />} />
+						<Route path='/listings/create' element={<ListingCreate />} />
+						<Route path='/listings/:propId/details' element={<ListingDetails />} />
+					</Route>
+
+					<Route element={ <ListingOwnerGuard /> }>
+						<Route path='/listings/:propId/edit' element={<ListingEdit />} />
+					</Route>
+
+				</Routes>
+				<Footer />
 			</CompanyContext.Provider>
 		</>
 

@@ -36,7 +36,7 @@ export default function Header() {
                         </li>
                         <li className="nav-item">
                             <a className="nav-link click-scroll" href="/#section_2">
-                                Browse Topics
+                                Browse Properties
                             </a>
                         </li>
                         <li className="nav-item">
@@ -70,12 +70,12 @@ export default function Header() {
                                 aria-labelledby="navbarLightDropdownMenuLink"
                             >
                                 <li>
-                                    <Link className="dropdown-item" to="/listings">
+                                    <Link className="dropdown-item" href="/listings">
                                         Listings
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link className="dropdown-item" to="/contact">
+                                    <Link className="dropdown-item" to="./contact">
                                         Contact Form
                                     </Link>
                                 </li>
