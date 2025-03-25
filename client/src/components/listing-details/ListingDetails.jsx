@@ -92,7 +92,15 @@ export default function ListingDetails() {
                                         <li>
                                             Garden: {property.garden ? "Available" : "Not available"}
                                         </li>
-                                        <li>Address: {property.address} </li>
+                                        <li>
+                                            Address: 
+                                            <ul>
+                                                <li>Country: {property.address?.country}</li>
+                                                <li>City: {property.address?.city}</li>
+                                                <li>Street: {property.address?.street}</li>
+                                                <li>Postcode: {property.address?.postcode}</li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </blockquote>
 
@@ -111,9 +119,8 @@ export default function ListingDetails() {
                                     </div>
                                 </div>
                                 <p>
-                                    Most people start with freelancing skills they already have as a
-                                    side hustle to build up income. This extra cash can be used for a
-                                    vacation, to boost up savings, investing, build business.
+                                    <strong>{property.title}</strong> listing has been added by the agency <strong>{property.agency}</strong>. If you are interested in the current property and 
+                                    would like to hear more about it from the advertiser, please fill in your email in the provided form bellow.
                                 </p>
                             </div>
                         </div>

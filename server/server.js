@@ -1340,7 +1340,8 @@
             "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
                 email: "admin@abv.bg",
                 username: "Admin",
-                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302",
+                companyName: 'Admin Company'
             }
         },
         sessions: {
@@ -1353,7 +1354,12 @@
                 "title": "Modern Loft in Downtown LA",
                 "thumbnail": "https://canarywharf.com/wp-content/uploads/2023/12/Advantages-of-loft-apartment-living-at-Canary-Wharf.png",
                 "type": "Apartment",
-                "address": "456 Main Street, Los Angeles, CA 90012",
+                "address": {
+                    "country": "USA",
+                    "city": "Los Angeles",
+                    "street": "456 Main Street",
+                    "postcode": "CA 90012"
+                },
                 "price": "480000",
                 "bedrooms": "2",
                 "bathrooms": "2",
@@ -1362,9 +1368,9 @@
                 "garden": "off",
                 "image1": "https://na.rdcpix.com/abfa043892293e489198504e3db49f46w-c1008045376srd_q80.jpg",
                 "image2": "https://www.rodaonline.com/wp-content/uploads/C_IMG_sky_loft_apartment_04-900x540.jpg",
-                "description": "A stunning loft located in the heart of downtown LA, featuring high ceilings, large windows, and top-tier amenities. Walking distance to cafes, shopping, and nightlife.",
+                "description": "This stunning loft is a true gem in the heart of downtown LA, offering an exceptional living experience with a perfect blend of style and convenience. Featuring soaring high ceilings and expansive windows, the loft is bathed in natural light, creating an open, airy atmosphere with breathtaking city views. The modern design includes sleek finishes and top-tier amenities, ensuring both comfort and luxury. Located just steps away from the vibrant pulse of downtown, you'll enjoy easy walking access to trendy cafes, high-end shopping, and the city's dynamic nightlife. Whether you're relaxing in your spacious home or exploring the energetic streets of LA, this loft offers the perfect base for an urban lifestyle.",
                 "agency": "Sunset Realty",
-                "_createdOn": 1742559923942,
+                "_createdOn": 1742559923142,
                 "_updatedOn": 1742566252946,
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "99f0cf0b-34b0-4abd-9769-8c42f830dffc"
@@ -1372,8 +1378,13 @@
             {
                 "title": "Cozy Suburban Home with Garden",
                 "thumbnail": "https://content.knightfrank.com/blog/2023/3/00bfec89-ffc1-410b-b04e-e0da370b1bf5/hampshire-garden-1.jpg",
-                "type":"House",
-                "address": "789 Willow Drive, Austin, TX 73301",
+                "type": "House",
+                "address": {
+                    "country": "USA",
+                    "city": "Austin",
+                    "street": "789 Willow Drive",
+                    "postcode": "TX 73301"
+                },
                 "price": "375000",
                 "bedrooms": "3",
                 "bathrooms": "2",
@@ -1382,9 +1393,9 @@
                 "garden": "on",
                 "image1": "https://hips.hearstapps.com/hmg-prod/images/priors-crescent-living-room-haus-interiors-show-home-1602462623.jpg?crop=1xw:0.8438705529361338xh;center,top&resize=1200:*",
                 "image2": "https://www.taylorwimpey.co.uk/-/twdxmedia/images/national/sales-and-marketing/inspire-me/trends/lagom-article/taylor-wimpey-lagom-trend-12.jpg?la=en&h=768&w=1152&mw=1152&hash=C0A3B5E8078783D58F45FF17F6408314",
-                "description": "A perfect home for families, with a spacious backyard, lush garden, and a peaceful suburban setting. Close to top-rated schools and shopping centers.",
+                "description": "This ideal family home combines comfort, convenience, and tranquility, offering a spacious backyard and lush garden that create a serene retreat for outdoor play, gardening, and relaxation. Set in a peaceful suburban neighborhood, it provides the perfect environment for raising a family. The home boasts generous living spaces, with cozy interiors that cater to both everyday living and family gatherings. Just a short distance away, you'll find top-rated schools, ensuring an easy commute for children, as well as nearby shopping centers for all your everyday needs. With its welcoming atmosphere, beautiful surroundings, and prime location, this home offers the perfect balance of convenience and comfort for family life.",
                 "agency": "Austin Homes",
-                "_createdOn": 1742559923942,
+                "_createdOn": 1742559923442,
                 "_updatedOn": 1742566252946,
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "20sow90-34b0-4abd-9769-8c42f830dffc"
@@ -1392,8 +1403,13 @@
             {
                 "title": "Luxury Penthouse Overlooking Central Park",
                 "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC68mJQpSdmreRsfZGS2f55eSxL6NdsKbHEw&s",
-                "type":"Apartment",
-                "address": "12 Central Park West, New York, NY 10023",
+                "type": "Apartment",
+                "address": {
+                    "country": "USA",
+                    "city": "New York",
+                    "street": "12 Central Park West",
+                    "postcode": "NY 10023"
+                },
                 "price": "2900000",
                 "bedrooms": "4",
                 "bathrooms": "3",
@@ -1402,9 +1418,9 @@
                 "garden": "off",
                 "image1": "https://20thebarons.co.uk/wp-content/uploads/elementor/thumbs/W_36-Hill-View-Loft-Terrace-20-The-Barons-Luxury-Serviced-Apartments-Richmond-Twickenham-South-West-London-TW1-pz7gyuynqmj5nv7j3ete688vxl8cscrun7of0u4m8w.jpg",
                 "image2": "https://thumbs.nestseekers.com/PeGCbGUmSenNUpw.jpg",
-                "description": "An exquisite penthouse offering breathtaking views of Central Park, floor-to-ceiling windows, a gourmet kitchen, and high-end finishes throughout.",
+                "description": "This exquisite penthouse offers a truly luxurious living experience, with unparalleled, breathtaking views of Central Park that stretch as far as the eye can see. The expansive space features floor-to-ceiling windows that flood the home with natural light, creating an open, airy atmosphere while showcasing the iconic park and city skyline. The gourmet kitchen is a chef’s dream, equipped with state-of-the-art appliances, sleek countertops, and custom cabinetry, perfect for both cooking and entertaining. Throughout the penthouse, high-end finishes and meticulous attention to detail are evident in every room, from the elegant living areas to the serene bedrooms. With its exceptional design and prime location, this penthouse offers an extraordinary urban retreat in the heart of the city.",
                 "agency": "Empire Realty",
-                "_createdOn": 1742559923942,
+                "_createdOn": 1742559923342,
                 "_updatedOn": 1742566252946,
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "23das2-34b0-4abd-9769-8c42f830dffc"
@@ -1412,8 +1428,13 @@
             {
                 "title": "Seaside Villa with Private Beach",
                 "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-dDRzx-UwJ0ZYjt3VK2g3UDnGcqxPr-j2w&s",
-                "type":"Villa",
-                "address": "Ocean Drive, Malibu, CA 90265",
+                "type": "Villa",
+                "address": {
+                    "country": "USA",
+                    "city": "Malibu",
+                    "street": "Ocean Drive",
+                    "postcode": "CA 90265"
+                },
                 "price": "5600000",
                 "bedrooms": "5",
                 "bathrooms": "4",
@@ -1422,13 +1443,163 @@
                 "garden": "on",
                 "image1": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/505130364.jpg?k=353d8b3fa9e6332708b12b053cf41c987337d1fbfbe1a283605cae7601922348&o=&hp=1",
                 "image2": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/570382143.jpg?k=d0a9ac8cfd53f85a50e41845d9e6ea224696da19d6e210f65208a78354b4b905&o=&hp=1",
-                "description": "A breathtaking beachfront villa with direct access to the ocean, a private infinity pool, and world-class luxury amenities. Perfect for a dream getaway.",
+                "description": "This breathtaking beachfront villa offers an unparalleled escape, with direct access to the pristine ocean and panoramic views that will take your breath away. The villa is designed for ultimate luxury, featuring an expansive layout with floor-to-ceiling windows that capture the stunning natural surroundings. Outside, a private infinity pool seamlessly blends into the horizon, offering a serene space to relax while listening to the gentle waves. Inside, the villa boasts world-class amenities, from a gourmet kitchen with top-of-the-line appliances to elegant living spaces designed for both relaxation and entertaining. Whether you're lounging by the pool, enjoying the view from the terrace, or indulging in the lavish interior, this villa offers the perfect setting for a dream getaway.",
                 "agency": "Malibu Elite Realty",
-                "_createdOn": 1742559923942,
+                "_createdOn": 1742559923742,
                 "_updatedOn": 1742566252946,
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "60f0cf0b-2323-4abd-9769-8c42f830dffc"
             },
+            {
+                "title": "Coastal Retreat with Ocean Views",
+                "thumbnail": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/387789676.jpg?k=ae86712579164faeebfb7e79182d431ffb8a9b764867a73b055a171e7aff624e&o=&hp=1",
+                "type": "Villa",
+                "address": {
+                    "country": "USA",
+                    "city": "San Diego",
+                    "street": "123 Seaside Avenue",
+                    "postcode": "CA 92101"
+                },
+                "price": "4200000",
+                "bedrooms": "4",
+                "bathrooms": "3",
+                "sqMeters": "280",
+                "garage": "on",
+                "garden": "on",
+                "image1": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/387789614.jpg?k=5251e299a56611dc27cc13dcba3f23030c2316428ee9c7e1e6f725c98e7b01c8&o=&hp=1",
+                "image2": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/387789630.jpg?k=7f48dc601c5659b502f63518d980655fe53fa48d8b08d409a24209a2872064c5&o=&hp=1",
+                "description": "This stunning oceanfront villa offers the ultimate in luxury living, with unobstructed, breathtaking views of the sparkling sea. Its open-concept design creates a seamless flow between the indoor and outdoor spaces, perfect for entertaining guests or enjoying tranquil moments with loved ones. Expansive glass walls allow natural light to flood the space, highlighting the sleek, modern interiors and high-end finishes throughout. The spacious living and dining areas lead out to a private terrace, where you can relax by the sparkling infinity pool while taking in the stunning vistas. Whether hosting a lavish dinner party or unwinding in the serene beauty of your surroundings, this villa provides a sophisticated and unparalleled coastal living experience.",
+                "agency": "Pacific Realty",
+                "_createdOn": 1742559923642,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "a1b2c3d4-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Modern City Loft in Chicago",
+                "thumbnail": "https://images.trvl-media.com/lodging/100000000/99240000/99235600/99235525/e36a9228.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+                "type": "Apartment",
+                "address": {
+                    "country": "USA",
+                    "city": "Chicago",
+                    "street": "567 Oak Street",
+                    "postcode": "IL 60611"
+                },
+                "price": "750000",
+                "bedrooms": "2",
+                "bathrooms": "2",
+                "sqMeters": "95",
+                "garage": "off",
+                "garden": "off",
+                "image1": "https://images.trvl-media.com/lodging/100000000/99240000/99235600/99235525/946d847d.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+                "image2": "https://images.trvl-media.com/lodging/100000000/99240000/99235600/99235525/38e2b855.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
+                "description": "This sleek and stylish loft embodies modern urban living with a perfect blend of industrial charm and contemporary sophistication. Featuring exposed brick walls, polished concrete floors, and striking steel accents, the design exudes a cool, industrial vibe. The expansive open-concept layout offers high ceilings and an abundance of natural light that flows through large windows, showcasing breathtaking city skyline views. The spacious living area seamlessly transitions into a gourmet kitchen with sleek countertops, high-end appliances, and designer fixtures, ideal for both entertaining and daily living. Whether you're enjoying the vibrant cityscape by day or the sparkling skyline by night, this loft provides an unparalleled, stylish setting for anyone seeking a chic, metropolitan lifestyle.",
+                "agency": "Windy City Homes",
+                "_createdOn": 1742559923830,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "b2c3d4e5-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Elegant Suburban Home with Pool",
+                "thumbnail": "https://i.pinimg.com/736x/3a/52/ec/3a52ec3c0a3b28ecccc582855141e022.jpg",
+                "type": "House",
+                "address": {
+                    "country": "USA",
+                    "city": "Dallas",
+                    "street": "789 Maple Lane",
+                    "postcode": "TX 75230"
+                },
+                "price": "850000",
+                "bedrooms": "4",
+                "bathrooms": "3",
+                "sqMeters": "180",
+                "garage": "on",
+                "garden": "on",
+                "image1": "https://i.pinimg.com/736x/0b/e4/b8/0be4b8a96525559f3b2874f776f70169.jpg",
+                "image2": "https://media.gettyimages.com/id/172198782/photo/million-dollar-home.jpg?s=612x612&w=gi&k=20&c=w4kDgMEqcTEStPXaWctBlEcNWOEJiR-VFNZTfG6Z3Us=",
+                "description": "This expansive family home offers the perfect blend of modern comfort and timeless appeal. With a generous floor plan and a stylish interior, it provides ample space for everyday living and entertaining. The sleek, contemporary design features open-concept living areas with high ceilings, large windows, and top-of-the-line finishes, creating a bright and welcoming atmosphere. Step outside to a sprawling backyard, ideal for outdoor fun and relaxation. The stunning pool serves as a focal point for family gatherings, providing a serene space for swimming, lounging, and enjoying warm afternoons together. Whether hosting a barbecue, playing games, or simply unwinding in the tranquil surroundings, this home offers an inviting, family-friendly environment that’s perfect for creating lasting memories.",
+                "agency": "Lone Star Realty",
+                "_createdOn": 1742559923910,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "c3d4e5f6-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Luxury High-Rise Condo in Miami",
+                "thumbnail": "https://cdn.homeandmoney.com/wp-content/uploads/2021/07/29120324/HAM_BuyingACondo_FeaturedImg.jpg",
+                "type": "Apartment",
+                "address": {
+                    "country": "USA",
+                    "city": "Miami",
+                    "street": "101 Ocean Drive",
+                    "postcode": "FL 33139"
+                },
+                "price": "1800000",
+                "bedrooms": "3",
+                "bathrooms": "3",
+                "sqMeters": "150",
+                "garage": "on",
+                "garden": "off",
+                "image1": "https://images.adsttc.com/media/images/5b67/0dc3/f197/cc27/8900/0025/newsletter/hanhai_qingyu_11.jpg?1533480342",
+                "image2": "https://www.atlantarealestateforum.com/wp-content/uploads/2019/01/Seven88-West-Midtown-Exterior.jpg",
+                "description": "Perched high above the coastline, this luxurious high-rise condo offers an unparalleled blend of elegance, comfort, and breathtaking ocean vistas. Floor-to-ceiling windows flood the space with natural light, providing sweeping panoramic views of the sparkling sea and skyline. The open-concept living area features sophisticated finishes, designer fixtures, and premium materials that exude modern elegance. Step onto the private balcony to enjoy the fresh ocean breeze and mesmerizing sunsets. Residents have access to world-class amenities, including a resort-style infinity pool, state-of-the-art fitness center, spa, concierge services, and exclusive lounge areas. Located in a prestigious building with top-tier security and convenience, this exceptional condo is the epitome of luxury coastal living.",
+                "agency": "Sunshine Realty",
+                "_createdOn": 1742559923912,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "d4e5f6g7-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Charming Countryside Estate",
+                "thumbnail": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/280413130.jpg?k=872264edd213c161d41d4fc4620a880a8f771608a10efbbffd3d1ef36728bdec&o=&hp=1",
+                "type": "House",
+                "address": {
+                    "country": "USA",
+                    "city": "Nashville",
+                    "street": "222 Greenfield Road",
+                    "postcode": "TN 37215"
+                },
+                "price": "950000",
+                "bedrooms": "5",
+                "bathrooms": "4",
+                "sqMeters": "250",
+                "garage": "on",
+                "garden": "on",
+                "image1": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/280413126.jpg?k=4ef951c5821ea2fc455ae296d8d55daa1193f051de5e08280b72818ed7672a3c&o=&hp=1",
+                "image2": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/280413125.jpg?k=d9e0807135781cc4cafa75b48a829b199a8322afcc62e6ac4ed4f749cd258d0e&o=&hp=1",
+                "description": "This stunning countryside estate is a true retreat, offering a perfect balance of comfort, charm, and natural beauty. Surrounded by rolling hills and picturesque landscapes, the property features a sprawling garden filled with vibrant flowers, mature trees, and open green spaces ideal for outdoor activities. The spacious home boasts warm, inviting interiors with rustic wood accents, large windows that flood the rooms with natural light, and cozy fireplaces for chilly evenings. A well-equipped kitchen, elegant dining area, and comfortable living spaces make it perfect for both intimate family moments and entertaining guests. Step outside to enjoy breathtaking panoramic views, relax on the sun-drenched patio, or explore the peaceful walking trails nearby. Whether you're looking for a family sanctuary or a countryside getaway, this estate offers a serene and idyllic lifestyle.",
+                "agency": "Southern Charm Realty",
+                "_createdOn": 1742559923920,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "e5f6g7h8-34b0-4abd-9769-8c42f830dffc"
+            },
+            {
+                "title": "Mediterranean-Style Villa with Vineyard",
+                "thumbnail": "https://st.hzcdn.com/simgs/d31158d0036aa519_4-3470/home-design.jpg",
+                "type": "Villa",
+                "address": {
+                    "country": "USA",
+                    "city": "Sonoma",
+                    "street": "333 Vineyard Lane",
+                    "postcode": "CA 95476"
+                },
+                "price": "3200000",
+                "bedrooms": "6",
+                "bathrooms": "5",
+                "sqMeters": "400",
+                "garage": "on",
+                "garden": "on",
+                "image1": "https://www.thesun.co.uk/wp-content/uploads/2022/03/NINTCHDBPICT000721014033.jpg?strip=all&w=960",
+                "image2": "https://www.thesun.co.uk/wp-content/uploads/2022/03/NINTCHDBPICT000721013512.jpg?strip=all&w=960",
+                "description": "Nestled amidst rolling vineyards, this breathtaking Mediterranean-style villa offers a perfect blend of luxury and tranquility. The elegant architecture features classic stucco walls, terracotta roof tiles, and grand arched doorways that exude timeless charm. Inside, you'll find spacious sunlit interiors adorned with high beamed ceilings, handcrafted tilework, and exquisite chandeliers. The gourmet kitchen boasts top-of-the-line appliances, while the expansive living and dining areas open up to scenic terraces with panoramic views. Outdoors, lush gardens, a sparkling infinity pool, and a charming courtyard create a serene oasis, ideal for relaxation or entertaining. Whether you're savoring a glass of local wine or watching the sunset over the vineyards, this villa offers an unparalleled lifestyle of sophistication and beauty.",
+                "agency": "Golden Coast Realty",
+                "_createdOn": 1742559923942,
+                "_updatedOn": 1742566252946,
+                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+                "_id": "f6g7h8i9-34b0-4abd-9769-8c42f830dffc"
+            }
         ],
     };
     var rules$1 = {

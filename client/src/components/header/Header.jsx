@@ -70,7 +70,7 @@ export default function Header() {
                                 aria-labelledby="navbarLightDropdownMenuLink"
                             >
                                 <li>
-                                    <Link className="dropdown-item" href="/listings">
+                                    <Link className="dropdown-item" to="/listings">
                                         Listings
                                     </Link>
                                 </li>
