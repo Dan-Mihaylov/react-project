@@ -95,10 +95,10 @@ export default function ListingDetails() {
                                         <li>
                                             Address: 
                                             <ul>
-                                                <li>Country: {property.address?.country}</li>
-                                                <li>City: {property.address?.city}</li>
-                                                <li>Street: {property.address?.street}</li>
-                                                <li>Postcode: {property.address?.postcode}</li>
+                                                <li>Country: {property.country}</li>
+                                                <li>City: {property.city}</li>
+                                                <li>Street: {property.street}</li>
+                                                <li>Postcode: {property.postcode}</li>
                                             </ul>
                                         </li>
                                     </ul>

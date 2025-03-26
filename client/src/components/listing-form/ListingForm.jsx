@@ -45,28 +45,28 @@ export default function ListingForm(
                         <div className="col-md-4">
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="title">Country</label>
-                                <input type="text" name="country" id="country" className="form-control" placeholder="Enter country" defaultValue={data.address ? data.address.country : ''} required />
+                                <input type="text" name="country" id="country" className="form-control" placeholder="Enter country" defaultValue={data.country} required />
                             </div>
                         </div>
 
                         <div className="col-md-4">
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="city">City</label>
-                                <input type="text" name="city" id="city" className="form-control" placeholder="Enter city" defaultValue={data.address ? data.address.city : ''} required />
+                                <input type="text" name="city" id="city" className="form-control" placeholder="Enter city" defaultValue={data.city} required />
                             </div>
                         </div>
 
                         <div className="col-md-4">
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="postcode">Postcode</label>
-                                <input type="text" name="postcode" id="postcode" className="form-control" placeholder="Enter postcode" defaultValue={data.address ? data.address.postcode : ''} required />
+                                <input type="text" name="postcode" id="postcode" className="form-control" placeholder="Enter postcode" defaultValue={data.postcode} required />
                             </div>
                         </div>
 
                         <div className="col-md-8">
                             <div className="mb-3">
                                 <label className="form-label" htmlFor="street">Property Street and Street Number</label>
-                                <input type="text" name="street" id="street" className="form-control" placeholder="Enter property street" defaultValue={data.address ? data.address.street : ''} required />
+                                <input type="text" name="street" id="street" className="form-control" placeholder="Enter property street" defaultValue={data.street} required />
                             </div>
                         </div>
                     </div>
