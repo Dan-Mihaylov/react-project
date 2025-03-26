@@ -1,0 +1,12 @@
+.edit-property-button {
+    color: white;
+    padding: 0.7rem 1rem;
+    border-radius: 1.5rem;
+    margin-right: 1.5rem;
+    border: 2px solid rgb(2, 59, 70);
+}
+
+.edit-property-button:hover {
+    color: rgb(3, 41, 58);
+    background-color: #80d0c7;
+}

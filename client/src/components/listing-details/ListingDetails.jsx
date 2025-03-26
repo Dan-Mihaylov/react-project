@@ -1,18 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { useProperty } from "../../api/propertyApi";
+import { CompanyContext } from "../../contexts/CompanyContext";
+import styles from './ListingDetails.module.css';
 
 export default function ListingDetails() {
     const [property, setProperty] = useState({});
+    const { _id } = useContext(CompanyContext);
     const { propId } = useParams();
     const { getProperty } = useProperty();
 
     useEffect(() => {
 
         getProperty(propId)
-        .then(setProperty);
+        .then(setProperty)
 
     }, [propId])
+
 
     return (
         <>
@@ -45,6 +49,13 @@ export default function ListingDetails() {
                                     >
                                         More Info
                                     </a>
+                                    {
+                                        property._ownerId === _id 
+                                        &&
+                                        <Link to={`/listings/${propId}/edit`} className={styles['edit-property-button']}>
+                                            Edit Property
+                                        </Link>
+                                    }
                                     <p href="#top" className="custom-icon"> £{Number(property.price).toLocaleString('en-US')} </p>
                                 </div>
 

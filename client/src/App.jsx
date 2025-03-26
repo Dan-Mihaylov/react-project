@@ -38,6 +38,7 @@ export default function App() {
 					<Route path='' element={<Home />} />
 					<Route path='/listings' element={<Listing />} />
 					<Route path='/contact' element={<Contacts />} />
+					<Route path='/listings/:propId/details' element={<ListingDetails />} />
 
 					<Route element={<GuestGuard />}>
 						<Route path='/register' element={<Register />} />
@@ -47,10 +48,9 @@ export default function App() {
 					<Route element={<AuthGuard />}>
 						<Route path='/logout' element={<Logout />} />
 						<Route path='/listings/create' element={<ListingCreate />} />
-						<Route path='/listings/:propId/details' element={<ListingDetails />} />
 					</Route>
 
-					<Route element={ <ListingOwnerGuard /> }>
+					<Route element={<ListingOwnerGuard />}>
 						<Route path='/listings/:propId/edit' element={<ListingEdit />} />
 					</Route>
 
