@@ -14,9 +14,9 @@ export const useProperty = () => {
         return response;
     };
 
-    const getProperties = async () => {
+    const getProperties = async (searchParams) => {
         // Will return 404 if collection does not exist.
-        const response = await request(baseUrl, 'GET');
+        const response = await request(`${baseUrl}?${searchParams.toString()}`, 'GET');
         if (response.error) {
             return [];
         }

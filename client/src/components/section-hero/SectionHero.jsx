@@ -1,3 +1,4 @@
+import SearchForm from "../search-form/SearchForm";
 
 export default function SectionHero() {
 
@@ -14,29 +15,8 @@ export default function SectionHero() {
 							platform for home seekers around the world
 						</h6>
 
-						<form
-							method="get"
-							className="custom-form mt-4 pt-2 mb-lg-0 mb-5"
-							role="search"
-						>
-							<div className="input-group input-group-lg">
-								<span
-									className="input-group-text bi-search"
-									id="basic-addon1"
-								></span>
-								<input
-									name="keyword"
-									type="search"
-									className="form-control"
-									id="keyword"
-									placeholder="Country, City, Street . . ."
-									aria-label="Search"
-								/>
-								<button type="submit" className="form-control">
-									Search
-								</button>
-							</div>
-						</form>
+						<SearchForm />
+
 					</div>
 				</div>
 			</div>

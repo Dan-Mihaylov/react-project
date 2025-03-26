@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import ListingItem from "../listing-item/ListingItem";
 import { useProperty } from "../../api/propertyApi";
 import { useEffect, useState } from "react";
@@ -6,10 +6,12 @@ import { useEffect, useState } from "react";
 export default function Listings() {
     const { getProperties } = useProperty();
     const [properties, setProperties] = useState([]);
+    const [ searchParams, _ ] = useSearchParams();
+
 
     useEffect(() => {
 
-        getProperties()
+        getProperties(searchParams)
             .then(setProperties)
 
     }, [])
