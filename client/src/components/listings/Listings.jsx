@@ -1,12 +1,15 @@
-import { Link, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import ListingItem from "../listing-item/ListingItem";
-import { useProperty } from "../../api/propertyApi";
+import {  listingsPageSize, useProperty } from "../../api/propertyApi";
 import { useEffect, useState } from "react";
+import Paginator from "../paginator/Paginator";
 
 export default function Listings() {
     const { getProperties } = useProperty();
     const [properties, setProperties] = useState([]);
-    const [ searchParams, _ ] = useSearchParams();
+    const [ searchParams, setSearchParams] = useSearchParams({'pageSize': listingsPageSize});
+    
+
 
 
     useEffect(() => {
@@ -14,7 +17,7 @@ export default function Listings() {
         getProperties(searchParams)
             .then(setProperties)
 
-    }, [])
+    }, [searchParams]);
 
     return (
         <>
@@ -59,49 +62,7 @@ export default function Listings() {
                         </div>
 
                         {/* Page paginator goes here... */}
-
-                        <div className="col-lg-12 col-12">
-                            <nav aria-label="Page navigation example">
-                                <ul className="pagination justify-content-center mb-0">
-                                    <li className="page-item">
-                                        <a className="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">Prev</span>
-                                        </a>
-                                    </li>
-                                    <li className="page-item active" aria-current="page">
-                                        <a className="page-link" href="#">
-                                            1
-                                        </a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">
-                                            2
-                                        </a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">
-                                            3
-                                        </a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">
-                                            4
-                                        </a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#">
-                                            5
-                                        </a>
-                                    </li>
-                                    <li className="page-item">
-                                        <a className="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">Next</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-
+                        <Paginator setSearchParams={setSearchParams} />
                     </div>
                 </div>
             </section>

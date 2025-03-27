@@ -7,7 +7,6 @@ export default function SearchForm() {
 
     const onChangeInputHandler = (e) => {
         setInput(e.target.value);
-        console.log(input);
     }
 
     const onFormSubmit = (e) => {
@@ -16,7 +15,7 @@ export default function SearchForm() {
             where: `country="${input}" OR city="${input}" OR street="${input}" OR postcode="${input}"`,
             orderBy: '_createdOn desc'
         });
-        navigate(`/listings?${urlSearchParams}`);
+        navigate(`/listings?${urlSearchParams.toString()}`);
     }
 
     return (

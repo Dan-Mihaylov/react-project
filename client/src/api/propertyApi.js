@@ -4,6 +4,7 @@ import { useAuth } from "./authApi";
 const baseUrl = 'http://localhost:3030/data/properties';
 const explorePageSize = 3;
 const latestPageSize = 2;
+export const listingsPageSize = 3;
 
 export const useProperty = () => {
     const { options } = useAuth();
@@ -17,7 +18,7 @@ export const useProperty = () => {
     const getProperties = async (searchParams) => {
         // Will return 404 if collection does not exist.
         const response = await request(`${baseUrl}?${searchParams.toString()}`, 'GET');
-        if (response.error) {
+        if (response.error || response.code === 400) {
             return [];
         }
         return response;
@@ -33,7 +34,7 @@ export const useProperty = () => {
         });
 
         const response = await request(`${baseUrl}?${urlSearchParams.toString()}`, 'GET');
-        if (response.error) {
+        if (response.error || response.code === 400) {
             return [];
         }
         return response;
