@@ -29,9 +29,6 @@ export default function ListingItem({
                             Property Details
                         </a>
                     </div>
-                    <span className="badge bg-design rounded-pill ms-auto">
-                        14
-                    </span>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 import { usePaginator } from "../../hooks/usePaginator";
 
 export default function Paginator({
-    setSearchParams,
+    setSearchParams
 }) {
 
     const {

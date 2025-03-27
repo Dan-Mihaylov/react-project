@@ -1,21 +1,25 @@
 import { useSearchParams } from "react-router";
 import ListingItem from "../listing-item/ListingItem";
-import {  listingsPageSize, useProperty } from "../../api/propertyApi";
+import { listingsPageSize, useProperty } from "../../api/propertyApi";
 import { useEffect, useState } from "react";
 import Paginator from "../paginator/Paginator";
+import ListingItemPlaceholder from "../listing-item/ListingItemPlaceholder";
 
 export default function Listings() {
-    const { getProperties } = useProperty();
     const [properties, setProperties] = useState([]);
-    const [ searchParams, setSearchParams] = useSearchParams({'pageSize': listingsPageSize});
-    
+    const [isPending, setIsPending] = useState(true);
+    const [searchParams, setSearchParams] = useSearchParams({ 'pageSize': listingsPageSize });
+    const { getProperties } = useProperty();
+
 
 
 
     useEffect(() => {
+        setIsPending(true);
 
         getProperties(searchParams)
             .then(setProperties)
+            .then(setIsPending(false))
 
     }, [searchParams]);
 
@@ -49,16 +53,20 @@ export default function Listings() {
                             <h3 className="mb-4">All Properties</h3>
                         </div>
 
-                        <div className="col-lg-8 col-12 mt-3 mx-auto">
+                        <div className="col-lg-8 col-12 mt-3 mx-auto" style={{minHeight: "1085px"}}>
 
                             {/* Properties List Starts here */}
                             {
-                                properties.map(property =>
-                                    <ListingItem key={property._id} item={property} />
-                                )
+                                properties.length > 0 && !isPending
+                                    ? properties.map(property =>
+                                        <ListingItem key={property._id} item={property} />
+                                    )
+                                    : <>
+                                        <ListingItemPlaceholder />
+                                        <ListingItemPlaceholder />
+                                        <ListingItemPlaceholder />
+                                    </>
                             }
-
-
                         </div>
 
                         {/* Page paginator goes here... */}

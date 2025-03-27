@@ -1,23 +1,32 @@
 import { useEffect, useState } from "react";
 import { listingsPageSize, useProperty } from "../api/propertyApi";
+import { useSearchParams } from "react-router";
 
 export const usePaginator = () => {
 
-    const [ totalItems, setTotalItems ] = useState(-1);
-    const [ currentPage, setCurrentPage ] = useState(1);
+    const [totalItems, setTotalItems] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [searchParams, _] = useSearchParams();
     const { getProperties } = useProperty();
     const totalPageSize = Math.ceil(totalItems / listingsPageSize);
 
     useEffect(() => {
-        
-        if (totalItems !== -1) {
+
+        if (totalItems > 1) {
+            
+            if (searchParams.has('offset')) {
+                setCurrentPage(Math.ceil(searchParams.get('offset') / listingsPageSize) + 1);
+                console.log(currentPage);
+            };
+
             return;
         };
 
-        const searchParams = new URLSearchParams({});
+        const resetSearchParams = new URLSearchParams({});
 
-        getProperties(searchParams)
-        .then(data => setTotalItems(data.length));
+        getProperties(resetSearchParams)
+            .then(data => setTotalItems(data.length));
+
     });
 
     const handlePageChange = (page, setSearchParams) => {
@@ -27,7 +36,7 @@ export const usePaginator = () => {
             newParams.set('pageSize', listingsPageSize);
             return newParams;
         });
-    setCurrentPage(page);
+        setCurrentPage(page);
     }
 
     return {
@@ -35,5 +44,5 @@ export const usePaginator = () => {
         totalPageSize,
         handlePageChange
     };
-        
+
 }

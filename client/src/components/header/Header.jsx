@@ -50,7 +50,7 @@ export default function Header() {
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link click-scroll" href="#section_5">
+                            <a className="nav-link click-scroll" href="/#section_5">
                                 Contact
                             </a>
                         </li>
