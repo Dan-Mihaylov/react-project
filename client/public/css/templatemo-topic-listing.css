@@ -1160,3 +1160,24 @@ blockquote {
     max-width: 100%;
   }
 }
+
+
+.form-message-container {
+  background-color: rgb(182, 241, 239);
+  padding:  1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 2rem;
+}
+
+.form-message-container p {
+  padding: 0;
+  margin: 0;
+}
+
+.success {
+  background-color: rgb(182, 241, 239);
+}
+
+.failure {
+  background-color: rgb(247, 217, 209);
+}

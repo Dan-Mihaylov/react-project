@@ -5,6 +5,7 @@ import { CompanyContext } from "../../contexts/CompanyContext";
 import styles from './ListingDetails.module.css';
 import ImageShow from "../image-show/ImageShow";
 import { useImageShow } from "../../hooks/useImageShow";
+import ListingContactForm from "./ListingContactForm";
 
 export default function ListingDetails() {
     const [property, setProperty] = useState({});
@@ -161,28 +162,9 @@ export default function ListingDetails() {
                         </div>
 
                         <div className="col-lg-5 col-12 subscribe-form-wrap d-flex justify-content-center align-items-center">
-                            <form
-                                className="custom-form subscribe-form"
-                                action="#"
-                                method="post"
-                                role="form"
-                            >
-                                <h4 className="mb-4 pb-2">Want us to get in touch with you about this property?</h4>
-                                <input
-                                    type="email"
-                                    name="interested"
-                                    id="interested-email"
-                                    pattern="[^ @]*@[^ @]*"
-                                    className="form-control"
-                                    placeholder="example@email.com"
-                                    required=""
-                                />
-                                <div className="col-lg-12 col-12">
-                                    <button type="submit" className="form-control">
-                                        Get in touch
-                                    </button>
-                                </div>
-                            </form>
+
+                            <ListingContactForm listing={property} />
+
                         </div>
                     </div>
                 </div>
