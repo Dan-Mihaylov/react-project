@@ -1,16 +1,6 @@
 import { useActionState, useState } from "react";
 import { useContactForm } from "../../api/contactsApi";
-import * as yup from 'yup';
-
-
-const contactSchema = yup.object().shape({
-    name: yup.string().min(2, "Name must be at least 2 characters").required("Name is required"),
-    email: yup.string().email("Invalid email format").required("Email is required"),
-    subjectLine: yup.string().required("Subject is required"),
-    message: yup.string().min(10, "Message must be at least 10 characters").required("Message is required"),
-});
-
-
+import { contactSchema } from "../../schemas/contactFormSchema";
 
 export default function ContactsForm() {
     const { submitForm } = useContactForm();

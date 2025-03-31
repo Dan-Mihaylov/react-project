@@ -14,7 +14,6 @@ export default function Login() {
     const formSubmitHandler = async (initialState, formData) => {
         const { email, password } = Object.fromEntries(formData);
 
-        // TODO: Hash password and compare hashes, add the hashing to the register as well, before entering the pass in the db.
         const authData = await login(email, password);
 
         if (authData.message) {

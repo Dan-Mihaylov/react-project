@@ -3,37 +3,51 @@ import { useRegister } from "../../api/authApi";
 import { useNavigate } from "react-router";
 import { Link } from "react-router";
 import { CompanyContext } from "../../contexts/CompanyContext";
+import { registerSchema } from "../../schemas/registrationFormSchema";
 
 export default function Register() {
     const { companyLoginHandler } = useContext(CompanyContext);
     const { register } = useRegister();
     const navigate = useNavigate();
-
-    const [error, setError] = useState("");
+    const [errors, setErrors] = useState([]);
 
     const formSubmitHandler = async (initialState, formData) => {
 
         const data = Object.fromEntries(formData);
 
         if (data.password !== data.confirmPassword) {
-            setError("Passwords do not match!");
+            setErrors(["Passwords do not match!"]);
             return;
         }
-        setError("");
+        setErrors([]);
 
         // TODO: Other fields validations ...
         delete data.confirmPassword;
-        
-        const authData = await register(data);
-        delete authData.password;
 
-        if (authData.message) {
-            setError(authData.message);
-            return;
+        try {
+            await registerSchema.validate(data, {abortEarly: false});
+
+            const authData = await register(data);
+            delete authData.password;
+    
+            if (authData.message) {
+                throw new Error(authData.message);
+            }
+    
+            companyLoginHandler(authData);
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+            if (error.inner) {
+                const tempErrors = [];
+                error.inner.forEach((e) => {
+                    tempErrors.push(e.message);
+                });
+                setErrors(tempErrors);
+            } else {
+                setErrors([error.message]);
+            };
         }
-
-        companyLoginHandler(authData);
-        navigate('/');
 
     };
 
@@ -54,7 +68,7 @@ export default function Register() {
                 {/* Left Side Image */}
                 <div className="d-none d-md-block" style={{ width: "50%", background: `url('/images/houses-blue.jpg') center/cover no-repeat` }}>
                 </div>
-    
+
                 {/* Registration Form */}
                 <div className="p-4 flex-grow-1 form-grow">
                     <h6 className="mb-3 text-left">Agency Registration</h6>
@@ -62,9 +76,13 @@ export default function Register() {
                         Already have an account? Follow this link to <br /><Link to='/login'> log into your account</Link>
                     </small>
                     <br />
-    
-                    {error && <div className="alert alert-danger">{error}</div>}
-    
+
+                    {errors.length > 0 && <div className="alert alert-danger">
+                        {
+                            errors.map((message, i) => <small key={i}> {message}</small>)
+                        }
+                    </div>}
+
                     <form action={formAction}>
                         <div className="mb-3">
                             <label className="form-label" htmlFor="email">Email Address</label>
@@ -78,7 +96,7 @@ export default function Register() {
                                 required
                             />
                         </div>
-    
+
                         <div className="mb-3">
                             <label className="form-label" htmlFor="password">Password</label>
                             <input
@@ -91,7 +109,7 @@ export default function Register() {
                                 required
                             />
                         </div>
-    
+
                         <div className="mb-3">
                             <label className="form-label" htmlFor="passwordConfirm">Confirm Password</label>
                             <input
@@ -104,7 +122,7 @@ export default function Register() {
                                 required
                             />
                         </div>
-    
+
                         <div className="mb-3">
                             <label className="form-label" htmlFor="companyName">Company Name</label>
                             <input
@@ -117,7 +135,7 @@ export default function Register() {
                                 required
                             />
                         </div>
-    
+
                         <div className="mb-3">
                             <label className="form-label" htmlFor="address">Company Address</label>
                             <input
@@ -130,7 +148,7 @@ export default function Register() {
                                 required
                             />
                         </div>
-    
+
                         <div className="mb-3">
                             <label className="form-label" htmlFor="imageUrl">Company Image URL</label>
                             <input
@@ -141,7 +159,7 @@ export default function Register() {
                                 id="imageUrl"
                             />
                         </div>
-    
+
                         <button type="submit" className="form-control btn btn-primary" style={{ backgroundColor: "#80d0c7", border: "none" }}>
                             Register
                         </button>
@@ -150,7 +168,7 @@ export default function Register() {
             </div>
         </div>
     );
-    
+
 
 
     // return (

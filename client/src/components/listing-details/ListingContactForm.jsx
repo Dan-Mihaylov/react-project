@@ -1,10 +1,8 @@
-import { useContactForm } from "../../api/contactsApi"
-import * as yup from 'yup';
+import { useContactForm } from "../../api/contactsApi";
+import { listingContactSchema } from "../../schemas/listingContactFormSchema";
 import { useActionState, useState } from "react";
 
-const listingContactSchema = yup.object().shape({
-    email: yup.string().email("Invalid email format").required("Email is required"),
-})
+
 
 export default function ListingContactForm({
     listing,
@@ -21,8 +19,6 @@ export default function ListingContactForm({
         setIsPending(true);
         setSuccess(true);
         setErrors([]);
-        console.log('SUBMIT...')
-        console.log(errors);
 
         try {
             await listingContactSchema.validate(Object.fromEntries(formData), { abortEarly: false });
@@ -38,7 +34,6 @@ export default function ListingContactForm({
             setMessage(response.message);
 
         } catch (error) {
-            console.log(error)
             setSuccess(false);
             if (error.inner) {
                 const tempErrors = [];

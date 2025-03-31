@@ -2,12 +2,24 @@ export default function ListingForm(
     {
         data,
         formAction,
+        isPending,
+        errors = [],
     }
 ) {
 
-
     return (
         <div className="container mt-4">
+
+            {
+                errors.length > 0
+                &&
+                <div className={`form-message-container failure`}>
+                    {
+                        errors.map((message, i) => <p key={i}> {message}</p>)
+                    }
+                </div>
+            }
+
             <div className="card shadow p-4">
                 {data._ownerId
                     ? <h5 className="mb-3 text-left">Edit Property</h5>
@@ -136,7 +148,12 @@ export default function ListingForm(
                     </div>
 
                     {/* Submit Button */}
-                    <button type="submit" className="btn btn-primary w-100">{data._ownerId ? "Edit Property" : "Add Property"}</button>
+                    <button
+                        type="submit"
+                        className="btn btn-primary w-100"
+                        disabled={isPending ? "disabled" : null}>
+                        {data._ownerId ? "Edit Property" : "Add Property"}
+                    </button>
                 </form>
             </div>
         </div>
