@@ -1,7 +1,11 @@
 import { useAuth } from "./authApi";
 import request from "../utils/requester";
 
-const baseUrl = 'http://localhost:3030/data/properties';
+const baseUrl = import.meta.env.VITE_SERVER_URL
+    ? `${import.meta.env.VITE_SERVER_URL}/data/properties`
+    : 'http://localhost:3030/data/properties';
+
+
 const explorePageSize = 3;
 const latestPageSize = 2;
 export const listingsPageSize = 3;
@@ -34,7 +38,7 @@ export const useProperty = () => {
     };
 
     const getPropertiesByType = async (propertyType) => {
-        
+
         const urlSearchParams = new URLSearchParams({
             where: `type="${propertyType}"`,
             sortBy: '_createdOn desc',
@@ -50,7 +54,7 @@ export const useProperty = () => {
         };
         return response;
     };
-    
+
     const createProperty = async (propData) => {
         const response = await request(baseUrl, 'POST', propData, options);
         return response;
@@ -72,7 +76,7 @@ export const useProperty = () => {
 
 export const useLatestProperties = () => {
 
-    const latestProperties = async (pageSize=latestPageSize) => {
+    const latestProperties = async (pageSize = latestPageSize) => {
         const urlSearchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
             pageSize: pageSize

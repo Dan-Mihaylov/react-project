@@ -1,6 +1,9 @@
 import request from "../utils/requester";
 
-const baseUrl = 'http://localhost:3030/users';
+const baseUrl = import.meta.env.VITE_SERVER_URL
+    ? `${import.meta.env.VITE_SERVER_URL}/users`
+    : 'http://localhost:3030/users';
+
 const authKey = 'auth';
 
 export const useAuth = () => {

@@ -35,7 +35,7 @@ export default function SectionFeatured() {
                 <div className="row justify-content-center">
                     {
                         error &&
-                        <div className="col-md-8 col-lg-6">
+                        <div className="col-md-8 col-lg-6 w-100">
                             <div className={`form-message-container failure text-center`}>
                                 <p>{error}</p>
                             </div>
