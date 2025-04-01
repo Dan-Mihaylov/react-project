@@ -3,11 +3,11 @@ import { useContactForm } from "../../api/contactsApi";
 import { contactSchema } from "../../schemas/contactFormSchema";
 
 export default function ContactsForm() {
-    const { submitForm } = useContactForm();
     const [isPending, setIsPending] = useState(false);
     const [message, setMessage] = useState(null);
     const [success, setSuccess] = useState(true);
     const [errors, setErrors] = useState([]);
+    const { submitForm } = useContactForm();
 
     const formSubmitHandler = async (_, formData) => {
         setMessage(null);

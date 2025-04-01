@@ -11,7 +11,7 @@ export default function Logout () {
     useEffect(() => {
         logout()
         .then(companyLogoutHandler())
-    }, [])
+    });
 
     return !isAuthenticated 
     ? <Navigate to="/" />

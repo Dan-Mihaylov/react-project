@@ -5,24 +5,17 @@ import { useProperty } from "../api/propertyApi";
 import ListingForm from "../components/listing-form/ListingForm";
 
 export default function ListingOwnerGuard () {
-    const { isAuthenticated, _id } = useContext(CompanyContext);
-    const { propId } = useParams();
     const [ hasAccess, setHasAccess ] = useState(null);
+    const { _id } = useContext(CompanyContext);
+    const { propId } = useParams();
     const { getProperty } = useProperty();
     
     useEffect(() => {
-
-        if (!isAuthenticated) {
-            return <Navigate to='/login' />
-        };
-
         getProperty(propId)
         .then( (property) => {
              setHasAccess(property._ownerId === _id);
-            console.log('PID: ', property._ownerId, '\nOID: ', _id);
-
             });
-    }, []);
+    }, [propId]);
 
     if (hasAccess === null) return <ListingForm data={{_ownerId: _id}} />;
 

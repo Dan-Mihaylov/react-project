@@ -1,6 +1,6 @@
 import request from "../utils/requester";
 
-const baseUrl = 'http://localhost:3030/users'
+const baseUrl = 'http://localhost:3030/users';
 const authKey = 'auth';
 
 export const useAuth = () => {
@@ -53,5 +53,5 @@ export const useLogout = () => {
 
     return {
         logout,
-    }
+    };
 };

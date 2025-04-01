@@ -1,24 +1,34 @@
 import { useContext, useEffect, useState } from "react";
-import ListingForm from "../listing-form/ListingForm";
 import { CompanyContext } from "../../contexts/CompanyContext";
 import { useProperty } from "../../api/propertyApi";
 import { useNavigate, useParams } from "react-router";
 import { propertyFormSchema } from "../../schemas/propertyFormSchema";
+import ListingForm from "../listing-form/ListingForm";
 
 
 export default function ListingEdit() {
-    const { companyName } = useContext(CompanyContext);
-    const { propId } = useParams();
     const [propData, setPropData] = useState({});
-    const { updateProperty, getProperty } = useProperty();
-    const navigate = useNavigate();
     const [isPending, setIsPending] = useState(false);
     const [errors, setErrors] = useState([]);
+    const { companyName } = useContext(CompanyContext);
+    const { propId } = useParams();
+    const { updateProperty, getProperty } = useProperty();
+    const navigate = useNavigate();
 
     useEffect(() => {
+
         getProperty(propId)
-            .then(setPropData)
-    }, []);
+            .then((response) => {
+                if (response.error) {
+                    throw new Error(response.message);
+                };
+                setPropData(response);
+                return response;
+            })
+            .catch((error) => {
+                setErrors([error.message]);
+            });
+    }, [propId]);
 
     const formAction = async (formData) => {
         setIsPending(true);
@@ -50,6 +60,7 @@ export default function ListingEdit() {
         formAction={formAction}
         isPending={isPending}
         errors={errors}
+        edit={true}
     />
 
 };

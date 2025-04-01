@@ -8,11 +8,11 @@ export default function ListingContactForm({
     listing,
 }) {
 
-    const { submitForm } = useContactForm();
     const [isPending, setIsPending] = useState(false);
     const [message, setMessage] = useState(null);
     const [success, setSuccess] = useState(true);
     const [errors, setErrors] = useState([]);
+    const { submitForm } = useContactForm();
 
     const formSubmitHandler = async (_, formData) => {
         setMessage(null);
@@ -22,7 +22,7 @@ export default function ListingContactForm({
 
         try {
             await listingContactSchema.validate(Object.fromEntries(formData), { abortEarly: false });
-            
+
             formData.append('Property ID', listing._id);
             formData.append('Property', listing.title);
             formData.append('Price', listing.price);

@@ -1,27 +1,41 @@
 import { useState, useEffect } from "react";
 import { useProperty } from "../../api/propertyApi";
 import ExploreItem from "../explore-item/ExploreItem";
+import ExploreItemLoader from "../explore-item/ExploreItemLoader";
 
 export default function SectionExplore() {
 
+    const [propertyType, setPropertyType] = useState('Apartment');
+    const [properties, setProperties] = useState([]);
+    const [error, setError] = useState(null);
     const { getPropertiesByType } = useProperty();
-    const [ propertyType, setPropertyType ] = useState('Apartment');
-    const [ properties, setProperties ] = useState([]);
 
     useEffect(() => {
+        setError(null);
+        setProperties([]);
 
         getPropertiesByType(propertyType)
-        .then(setProperties)
+            .then((response) => {
+                if (response.error) {
+                    throw new Error(response.message);
+                };
+
+                setProperties(response);
+                return response;
+            })
+            .catch((error) => {
+                setError(error.message);
+            });
 
     }, [propertyType]);
 
-    const propertyChangeClickHandler = (propType)=> {
+    const propertyChangeClickHandler = (propType) => {
         setPropertyType(propType);
     }
 
     return (
         <section className="explore-section section-padding" id="section_2">
-            
+
             <div className="container">
                 <div className="row">
                     <div className="col-12 text-center">
@@ -43,7 +57,7 @@ export default function SectionExplore() {
                                 role="tab"
                                 aria-controls="apartments-tab-pane"
                                 aria-selected="true"
-                                onClick={ () => propertyChangeClickHandler('Apartment') }
+                                onClick={() => propertyChangeClickHandler('Apartment')}
                             >
                                 Apartments
                             </button>
@@ -58,7 +72,7 @@ export default function SectionExplore() {
                                 role="tab"
                                 aria-controls="houses-tab-pane"
                                 aria-selected="false"
-                                onClick={ () => propertyChangeClickHandler('House') }
+                                onClick={() => propertyChangeClickHandler('House')}
                             >
                                 Houses
                             </button>
@@ -73,7 +87,7 @@ export default function SectionExplore() {
                                 role="tab"
                                 aria-controls="villas-tab-pane"
                                 aria-selected="false"
-                                onClick={ () => propertyChangeClickHandler('Villa') }
+                                onClick={() => propertyChangeClickHandler('Villa')}
                             >
                                 Villas
                             </button>
@@ -81,7 +95,7 @@ export default function SectionExplore() {
                     </ul>
                 </div>
             </div>
-            
+
             <div className="container">
                 <div className="row">
                     <div className="col-12">
@@ -96,13 +110,11 @@ export default function SectionExplore() {
 
                                 <div className="row">
 
-                                {
-                                    propertyType === 'Apartment'
-                                    &&
-                                    properties.map(property => <ExploreItem key={property._id} item={property} />)
-                                }
-                                    
-
+                                    {
+                                        propertyType === 'Apartment' && properties.length > 0
+                                            ? properties.map(property => <ExploreItem key={property._id} item={property} />)
+                                            : Array.from([1, 2, 3]).map(el => <ExploreItemLoader key={el} />)
+                                    }
 
                                 </div>
                             </div>
@@ -113,13 +125,13 @@ export default function SectionExplore() {
                                 aria-labelledby="houses-tab"
                                 tabIndex={0}
                             >
-                                <div className="row">     
+                                <div className="row">
 
-                                {
-                                    propertyType === 'House'
-                                    &&
-                                    properties.map(property => <ExploreItem key={property._id} item={property} />)
-                                }
+                                    {
+                                        propertyType === 'House' && properties.length > 0
+                                            ? properties.map(property => <ExploreItem key={property._id} item={property} />)
+                                            : Array.from([1, 2, 3]).map(el => <ExploreItemLoader key={el} />)
+                                    }
 
                                 </div>
                             </div>
@@ -133,11 +145,11 @@ export default function SectionExplore() {
                             >
                                 <div className="row">
 
-                                {
-                                    propertyType === 'Villa'
-                                    &&
-                                    properties.map(property => <ExploreItem key={property._id} item={property} />)
-                                }
+                                    {
+                                        propertyType === 'Villa' && properties.length > 0
+                                            ? properties.map(property => <ExploreItem key={property._id} item={property} />)
+                                            : Array.from([1, 2, 3]).map(el => <ExploreItemLoader key={el} />)
+                                    }
 
                                 </div>
                             </div>
@@ -146,6 +158,16 @@ export default function SectionExplore() {
                     </div>
                 </div>
             </div>
+
+            {
+                error &&
+                <div className="col-md-12 col-lg-100">
+                    <div className={`form-message-container failure text-center`}>
+                        <p>{error}</p>
+                    </div>
+                </div>
+            }
+
         </section>
     )
 

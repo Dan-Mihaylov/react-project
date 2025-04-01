@@ -16,6 +16,7 @@ import ListingEdit from './components/listing-edit/ListingEdit';
 import GuestGuard from './guards/GuestGuard';
 import AuthGuard from './guards/AuthGuard';
 import ListingOwnerGuard from './guards/ListingOwnerGuard';
+import NotFound from './components/not-found/NotFound';
 
 const authKey = 'auth';
 
@@ -35,6 +36,7 @@ export default function App() {
 			<CompanyContext.Provider value={{ ...authData, companyLoginHandler, companyLogoutHandler }} >
 				<Header />
 				<Routes>
+					<Route path="*" element={<NotFound/>} />
 					<Route path='' element={<Home />} />
 					<Route path='/listings' element={<Listings />} />
 					<Route path='/contact' element={<Contacts />} />

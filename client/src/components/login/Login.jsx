@@ -5,11 +5,11 @@ import { CompanyContext } from "../../contexts/CompanyContext";
 import { useLogin } from "../../api/authApi";
 
 export default function Login() {
+    const [error, setError] = useState("");
     const { companyLoginHandler } = useContext(CompanyContext);
     const { login } = useLogin();
     const navigate = useNavigate();
 
-    const [error, setError] = useState("");
 
     const formSubmitHandler = async (initialState, formData) => {
         const { email, password } = Object.fromEntries(formData);

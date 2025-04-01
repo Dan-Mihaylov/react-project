@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="row">
                     
                     <div className="col-lg-3 col-12 mb-4 pb-2">
-                        <a className="navbar-brand mb-2" href="index.html">
+                        <a className="navbar-brand mb-2" href="#top">
                             <i className="bi-back" />
                             <span> HomeIq</span>
                         </a>
@@ -83,13 +83,8 @@ export default function Footer() {
                             </ul>
                         </div>
                         <p className="copyright-text mt-lg-5 mt-4">
-                            Copyright © 2048 Topic Listing Center. All rights reserved.
+                            Copyright © 2048 Daniel Mihaylov. No rights reserved.
                             <br />
-                            <br />
-                            Design:{" "}
-                            <a rel="nofollow" href="https://templatemo.com" target="_blank">
-                                TemplateMo
-                            </a>
                         </p>
                     </div>
                 

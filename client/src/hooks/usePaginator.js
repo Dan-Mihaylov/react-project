@@ -16,7 +16,6 @@ export const usePaginator = () => {
             
             if (searchParams.has('offset')) {
                 setCurrentPage(Math.ceil(searchParams.get('offset') / listingsPageSize) + 1);
-                console.log(currentPage);
             };
 
             return;

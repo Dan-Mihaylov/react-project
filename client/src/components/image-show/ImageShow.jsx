@@ -7,7 +7,7 @@ export default function ImageShow({
 
     return (
         <div className={styles.backdrop} onClick={onBackdropClick}>
-            <img src={imageUrl} alt="Full Size" className={styles.image} />
+            <img src={imageUrl} alt="Full Size" className={`${styles.image} ${styles.handy}`} />
         </div>
     );
 };

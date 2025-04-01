@@ -1,4 +1,4 @@
-import React, { useState, useActionState, useContext } from "react";
+import { useState, useActionState, useContext } from "react";
 import { useRegister } from "../../api/authApi";
 import { useNavigate } from "react-router";
 import { Link } from "react-router";
@@ -6,10 +6,10 @@ import { CompanyContext } from "../../contexts/CompanyContext";
 import { registerSchema } from "../../schemas/registrationFormSchema";
 
 export default function Register() {
+    const [errors, setErrors] = useState([]);
     const { companyLoginHandler } = useContext(CompanyContext);
     const { register } = useRegister();
     const navigate = useNavigate();
-    const [errors, setErrors] = useState([]);
 
     const formSubmitHandler = async (initialState, formData) => {
 
@@ -21,7 +21,6 @@ export default function Register() {
         }
         setErrors([]);
 
-        // TODO: Other fields validations ...
         delete data.confirmPassword;
 
         try {

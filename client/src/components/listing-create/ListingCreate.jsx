@@ -1,15 +1,15 @@
 import { useContext, useState } from "react";
 import { CompanyContext } from "../../contexts/CompanyContext";
 import { useProperty } from "../../api/propertyApi";
-import ListingForm from "../listing-form/ListingForm";
 import { propertyFormSchema } from "../../schemas/propertyFormSchema";
 import { useNavigate } from "react-router";
+import ListingForm from "../listing-form/ListingForm";
 
 export default function AddPropertyForm() {
-	const { companyName } = useContext(CompanyContext);
-	const { createProperty } = useProperty();
 	const [isPending, setIsPending] = useState(false);
 	const [errors, setErrors] = useState([]);
+	const { companyName } = useContext(CompanyContext);
+	const { createProperty } = useProperty();
 	const navigate = useNavigate();
 
 

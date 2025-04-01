@@ -1181,3 +1181,7 @@ blockquote {
 .failure {
   background-color: rgb(247, 217, 209);
 }
+
+.handy:hover {
+  cursor: pointer;
+}

@@ -3,6 +3,7 @@ import * as yup from 'yup';
 
 
 const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
+const messageRegex = /^[a-zA-Z0-9\s!.?"'@#%$£&*^()]+$/;
 
 export const contactSchema = yup.object().shape({
     name: yup
@@ -23,7 +24,7 @@ export const contactSchema = yup.object().shape({
 
     message: yup
         .string()
-        .matches(alphanumericRegex, "Message can only contain letters and numbers")
+        .matches(messageRegex, "Message can only contain letters and numbers")
         .min(10, "Message must be at least 10 characters")
         .required("Message is required"),
 });

@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import { useShortDescription } from "../../hooks/useShortDescription"
 
 export default function ExploreItem({

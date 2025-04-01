@@ -1,5 +1,5 @@
-import request from "../utils/requester";
 import { useAuth } from "./authApi";
+import request from "../utils/requester";
 
 const baseUrl = 'http://localhost:3030/data/properties';
 const explorePageSize = 3;
@@ -12,17 +12,25 @@ export const useProperty = () => {
     const getProperty = async (propId) => {
         // Will return 404 if collection or entry does not exist.
         const response = await request(`${baseUrl}/${propId}`, 'GET');
+        if (response.error || response.status === 404) {
+            return {
+                'error': true,
+                'message': response.error ? response.message : 'Collection or entry does not exist.'
+            }
+        };
         return response;
     };
 
     const getProperties = async (searchParams) => {
         // Will return 404 if collection does not exist.
         const response = await request(`${baseUrl}?${searchParams.toString()}`, 'GET');
-        if (response.error || response.code === 400) {
-            return [];
-        }
+        if (response.error || response.status === 404) {
+            return {
+                'error': true,
+                'message': response.error ? response.message : 'Collection does not exist.'
+            };
+        };
         return response;
-
     };
 
     const getPropertiesByType = async (propertyType) => {
@@ -34,12 +42,14 @@ export const useProperty = () => {
         });
 
         const response = await request(`${baseUrl}?${urlSearchParams.toString()}`, 'GET');
-        if (response.error || response.code === 400) {
-            return [];
-        }
+        if (response.error || response.status === 404) {
+            return {
+                'error': true,
+                'message': response.error ? response.message : 'Collection does not exist.'
+            };
+        };
         return response;
-
-    }
+    };
     
     const createProperty = async (propData) => {
         const response = await request(baseUrl, 'POST', propData, options);
@@ -62,15 +72,18 @@ export const useProperty = () => {
 
 export const useLatestProperties = () => {
 
-    const latestProperties = async () => {
+    const latestProperties = async (pageSize=latestPageSize) => {
         const urlSearchParams = new URLSearchParams({
             sortBy: '_createdOn desc',
-            pageSize: latestPageSize
+            pageSize: pageSize
         });
 
         const response = await request(`${baseUrl}?${urlSearchParams.toString()}`);
-        if (response.error) {
-            return [];
+        if (response.error || response.status === 404) {
+            return {
+                'error': true,
+                'message': response.error ? response.message : 'Collection does not exist.'
+            };
         };
         return response;
 

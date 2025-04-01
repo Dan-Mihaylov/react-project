@@ -1,25 +1,50 @@
 import { useSearchParams } from "react-router";
-import ListingItem from "../listing-item/ListingItem";
-import { listingsPageSize, useProperty } from "../../api/propertyApi";
+import { listingsPageSize, useLatestProperties, useProperty } from "../../api/propertyApi";
 import { useEffect, useState } from "react";
+import ListingItem from "../listing-item/ListingItem";
+import ExploreItem from "../explore-item/ExploreItem";
+import ExploreItemLoader from "../explore-item/ExploreItemLoader";
 import Paginator from "../paginator/Paginator";
 import ListingItemPlaceholder from "../listing-item/ListingItemPlaceholder";
 
+const latestPageSize = 3;
+
 export default function Listings() {
     const [properties, setProperties] = useState([]);
+    const [featuredProperties, setFeaturedProperties] = useState([]);
     const [isPending, setIsPending] = useState(true);
     const [searchParams, setSearchParams] = useSearchParams({ 'pageSize': listingsPageSize });
+    const [error, setError] = useState(null);
     const { getProperties } = useProperty();
-
-
-
+    const { latestProperties } = useLatestProperties();
 
     useEffect(() => {
         setIsPending(true);
+        setProperties([]);
 
         getProperties(searchParams)
-            .then(setProperties)
+            .then((response) => {
+                if (response.error) {
+                    throw new Error(response.message);
+                };
+                setProperties(response);
+                return response;
+            })
             .then(setIsPending(false))
+            .catch((error) => {
+                setError(error.message);
+            });
+
+        if (featuredProperties.length == 0) {
+            latestProperties(latestPageSize)
+                .then((response) => {
+                    if (response.error) {
+                        return;
+                    };
+                    setFeaturedProperties(response);
+                    return response;
+                });
+        };
 
     }, [searchParams]);
 
@@ -50,10 +75,16 @@ export default function Listings() {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 col-12 text-center">
-                            <h3 className="mb-4">All Properties</h3>
+
+                            {!error
+                                ? < h3 className="mb-4">{properties.length > 0 ? 'All Properties' : 'No Properties Yet'}</h3>
+                                : <div className={`form-message-container failure`}>
+                                    <p>{error}</p>
+                                </div>
+                            }
                         </div>
 
-                        <div className="col-lg-8 col-12 mt-3 mx-auto" style={{minHeight: "1085px"}}>
+                        <div className="col-lg-8 col-12 mt-3 mx-auto" style={{ minHeight: "1085px" }}>
 
                             {/* Properties List Starts here */}
                             {
@@ -73,70 +104,37 @@ export default function Listings() {
                         <Paginator setSearchParams={setSearchParams} />
                     </div>
                 </div>
-            </section>
+            </section >
 
-            {/* Popular properties */}
-            <section className="section-padding section-bg">
+            {/* Latest Additions */}
+            < section className="section-padding section-bg" >
 
                 <div className="container">
 
                     <div className="row">
 
                         <div className="col-lg-12 col-12">
-                            <h3 className="mb-4">Popular Properties</h3>
+
+                            {!error
+                                ? < h3 className="mb-4">Latest Properties</h3>
+                                : <div className={`form-message-container failure text-center`}>
+                                    <p>{error}</p>
+                                </div>
+                            }
                         </div>
 
-                        <div className="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
-                            <div className="custom-block bg-white shadow-lg">
-                                <a href="topics-detail.html">
-                                    <div className="d-flex">
-                                        <div>
-                                            <h5 className="mb-2">Investment</h5>
-                                            <p className="mb-0">
-                                                Lorem Ipsum dolor sit amet consectetur
-                                            </p>
-                                        </div>
-                                        <span className="badge bg-finance rounded-pill ms-auto">
-                                            30
-                                        </span>
-                                    </div>
-                                    <img
-                                        src="images/topics/undraw_Finance_re_gnv2.png"
-                                        className="custom-block-image img-fluid"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                        </div>
+                        {
+                            featuredProperties && featuredProperties.length > 0
+                                ? featuredProperties.map(property => <ExploreItem key={property._id} item={property} />)
+                                : Array.from([1, 2, 3]).map(el => <ExploreItemLoader key={el} />)
 
-                        <div className="col-lg-6 col-md-6 col-12 mt-3 mb-4 mb-lg-0">
-                            <div className="custom-block bg-white shadow-lg">
-                                <a href="topics-detail.html">
-                                    <div className="d-flex">
-                                        <div>
-                                            <h5 className="mb-2">Investment</h5>
-                                            <p className="mb-0">
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum architecto molestias odio itaque dignissimos illo repellendus distinctio maiores veritatis, debitis a quidem voluptate unde facilis iste ullam perspiciatis minus earum?
-                                            </p>
-                                        </div>
-                                        <span className="badge bg-finance rounded-pill ms-auto">
-                                            30
-                                        </span>
-                                    </div>
-                                    <img
-                                        src="images/topics/undraw_Finance_re_gnv2.png"
-                                        className="custom-block-image img-fluid"
-                                        alt=""
-                                    />
-                                </a>
-                            </div>
-                        </div>
+                        }
 
 
                     </div>
                 </div>
 
-            </section>
+            </section >
 
         </>
 

@@ -1341,7 +1341,8 @@
                 email: "admin@abv.bg",
                 username: "Admin",
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302",
-                companyName: 'Admin Company'
+                companyName: 'Admin Company',
+                companyImageUrl: 'https://res.cloudinary.com/dh7ur0uv3/image/upload/v1743517484/small-pineapple_gx3hya.jpg'
             }
         },
         sessions: {
