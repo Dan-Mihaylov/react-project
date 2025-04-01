@@ -12,9 +12,7 @@ export default function Header() {
                     <i className="bi-back" />
                     <span> HomeIq</span>
                 </Link>
-                <div className="d-lg-none ms-auto me-4">
-                    <a href="#top" className="navbar-icon bi-person smoothscroll" />
-                </div>
+     
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -106,9 +104,9 @@ export default function Header() {
                     </ul>
 
                     <div className="d-none d-lg-block">
-                        {!companyImageUrl
+                        {!companyImageUrl && !isAuthenticated
                             ? <Link to="/register" className="navbar-icon bi-person smoothscroll" />
-                            : <Link to="#" className="navbar-icon smoothscroll" style={{ overflow: "hidden", backgroundImage: { companyImageUrl } }}> <img src={companyImageUrl} style={{ width: "100%", hight: "100%" }} /> </Link>
+                            : <Link to="/" className={`navbar-icon smoothscroll ${!companyImageUrl ? 'bi-person' : ''}`} style={{ overflow: "hidden", backgroundImage: { companyImageUrl } }}> <img src={companyImageUrl} style={{ width: "100%", hight: "100%" }} /> </Link>
                         }
                     </div>
 

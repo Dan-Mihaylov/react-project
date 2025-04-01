@@ -39,13 +39,13 @@ export default function ListingDetails() {
                                     <li className="breadcrumb-item">
                                         <Link to="/">Homepage</Link>
                                     </li>
-                                    <li className="breadcrumb-item active" aria-current="page">
+                                    <li className="breadcrumb-item active" aria-current="page" data-testid="propPrice1">
                                         £{Number(property.price).toLocaleString('en-US')}
                                     </li>
                                 </ol>
                             </nav>
 
-                            <h2 className="text-white">
+                            <h2 className="text-white" data-testid="header1">
                                 {property.title}
                             </h2>
 
@@ -63,7 +63,7 @@ export default function ListingDetails() {
                                         Edit Property
                                     </Link>
                                 }
-                                <p href="#top" className="custom-icon"> £{Number(property.price).toLocaleString('en-US')} </p>
+                                <p href="#top" className="custom-icon" data-testid="propPrice2">£{Number(property.price).toLocaleString('en-US')}</p>
                             </div>
 
                         </div>

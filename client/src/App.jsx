@@ -4,7 +4,7 @@ import { CompanyContext } from './contexts/CompanyContext';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import Footer from './components/footer/Footer';
-import Listing from './components/listings/Listings';
+import Listings from './components/listings/Listings';
 import ListingDetails from './components/listing-details/ListingDetails';
 import Contacts from './components/contacts/Contacts';
 import Register from './components/register/Register';
@@ -36,7 +36,7 @@ export default function App() {
 				<Header />
 				<Routes>
 					<Route path='' element={<Home />} />
-					<Route path='/listings' element={<Listing />} />
+					<Route path='/listings' element={<Listings />} />
 					<Route path='/contact' element={<Contacts />} />
 					<Route path='/listings/:propId/details' element={<ListingDetails />} />
 
