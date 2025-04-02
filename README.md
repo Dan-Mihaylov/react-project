@@ -121,7 +121,7 @@ You can obtain a Web3forms free access key on their website:
 - `isAuthenticated` & `access_token` for protected requests.
 
 ## Unit Testing <a name="unit-testing"></a>
-- Component tests written using Jest & React Testing Library.
+- Component tests written using Vitest & React Testing Library.
 - Validated form submissions and API calls.
 
 ## GitHub Actions Workflow <a name="github-actions"></a>
